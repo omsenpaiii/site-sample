@@ -86,7 +86,9 @@ export default function Footer() {
         </div>
         <div className="flex flex-col md:flex-row md:items-center md:justify-between text-gray-500 text-sm">
           <p>© {new Date().getFullYear()} STGI. All rights reserved.</p>
-          <p>Controls & Disclosures - STGI</p>
+          <a href="#contact" className="hover:text-accent-lime transition-colors">
+            Controls & Disclosures - STGI
+          </a>
         </div>
       </div>
     </footer>

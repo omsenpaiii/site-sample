@@ -30,10 +30,7 @@ export default function TransformationSection() {
             ))}
           </div>
         </div>
-
-        <div className="curved-panel curve-left bg-white/90 shadow-2xl">
-          <DataFlow />
-        </div>
+        <DataFlow />
       </div>
     </section>
   )
