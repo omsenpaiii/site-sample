@@ -26,6 +26,13 @@ export default function ContactSection() {
               <span>Email : STGIndia {'<'}stgindia@thesummitgrp.com{'>'}</span>
             </div>
           </div>
+          <div className="text-gray-400 text-[10px] leading-relaxed space-y-1 mt-4">
+              <p className="font-semibold text-gray-300">CONTROLS & DISCLOSURES :</p>
+              <p>
+                STGI is committed to maintaining the highest standards of data security, risk management, and
+                regulatory compliance.
+              </p>
+            </div>
         </div>
 
         {/* Contact Form */}
