@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 @layer base {
   * {
     border-color: theme('colors.gray.200');
@@ -21,7 +19,7 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-accent-lime text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-accent-green hover:scale-105 active:scale-95 cursor-pointer;
+    @apply inline-flex items-center bg-accent-lime text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-accent-green hover:scale-105 active:scale-95 cursor-pointer;
   }
   
   .btn-secondary {
@@ -44,11 +42,45 @@
     @apply bg-gradient-to-r from-accent-lime to-accent-green bg-clip-text text-transparent;
   }
   
-  .hero-grid {
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
+  .hero-grid{
+  --gap: 25px;      /* distance between parallel lines (tweak this) */
+  --line: 4px;      /* line thickness (tweak this) */
+  --stroke: rgba(35,35,35,.85);
+  --bg: #f3f1eb;
+
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(0deg,
+      var(--stroke) 0 var(--line),
+      transparent 0 var(--gap)
+    ),
+    repeating-linear-gradient(60deg,
+      var(--stroke) 0 var(--line),
+      transparent 0 var(--gap)
+    ),
+    repeating-linear-gradient(-60deg,
+      var(--stroke) 0 var(--line),
+      transparent 0 var(--gap)
+    );
+  }
+
+
+  .scribble-circle {
+    position: relative;
+    display: inline-block;
+    padding: 0 4px;
+  }
+
+  .scribble-circle::after {
+    content: '';
+    position: absolute;
+    inset: -6px -10px;
+    border: 3px solid #f7931e;
+    border-radius: 999px;
+    transform: rotate(0deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 4px 10px rgba(247, 147, 30, 0.25));
+    z-index: -1;
   }
 }
 
@@ -84,6 +116,46 @@
   }
 }
 
+@keyframes breath {
+  0%, 100% { transform: scale(0.95); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes line {
+  0%, 100% {
+    left: 0;
+    opacity: 0;
+  }
+  50% {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+  10%, 40%, 60%, 90% {
+    opacity: 0;
+  }
+  25%, 75% {
+    opacity: 1;
+  }
+}
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -94,12 +166,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #84cc16;
+  background: #f7931e;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #10b981;
+  background: #ff8c00;
 }
 
 /* Smooth transitions for all interactive elements */
@@ -129,6 +201,6 @@ select:focus {
 
 /* Selection styles */
 ::selection {
-  background-color: #84cc16;
+  background-color: #f7931e;
   color: #000;
 } 

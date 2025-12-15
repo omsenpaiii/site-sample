@@ -1,35 +1,36 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowRight, Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
-interface HeaderProps {}
-
-export default function Header({}: HeaderProps) {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
   const navigation = [
-    { name: 'Why FinanceX', href: '#features' },
-    { name: 'Features', href: '#services' },
-    { name: 'Update', href: '#pricing' }, 
-    { name: 'Blog', href: '#blog' },
+    { name: 'Home', href: '#home' },
+    { name: 'Solutions', href: '#solutions' },
+    { name: 'Tech Stack', href: '#tech' },
+    { name: 'Security', href: '#security' },
+    { name: 'About', href: '#about' },
+    { name: 'Careers', href: '#careers' },
+    { name: 'Contact', href: '#contact' },
   ]
 
   useEffect(() => {
     function handleScroll() {
-      setIsScrolled(window.scrollY > 20)
+      setIsScrolled(window.scrollY > 12)
     }
-    
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false)
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    const el = document.querySelector(href)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -43,73 +44,78 @@ export default function Header({}: HeaderProps) {
     >
       <nav className="container-custom">
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-accent-lime to-accent-green rounded-lg flex items-center justify-center">
-              <span className="text-black font-bold text-sm">FX</span>
+          <button
+            onClick={() => handleNavClick('#home')}
+            className="flex items-center space-x-3 group cursor-pointer"
+          >
+            <div className="relative w-15 h-15">
+              <Image
+                src="/assets/logos/logo.png"
+                alt="STGI Logo"
+                width={60}
+                height={60}
+                className="object-contain"
+              />
             </div>
-            <span className="text-xl font-bold">FinanceX</span>
-          </div>
+            <div className="text-left">
+              <p className="text-xs text-gray-400 uppercase tracking-[0.2em]">Lending Platforms By</p>
+              <p className="text-lg font-semibold group-hover:text-accent-lime">Summit Tech Group India</p>
+            </div>
+          </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-gray-300 hover:text-accent-lime transition-colors duration-200 cursor-pointer"
+                className="text-sm uppercase tracking-wide text-gray-300 hover:text-accent-lime"
               >
                 {item.name}
               </button>
             ))}
           </div>
 
-          {/* CTA Button & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <button 
-              onClick={() => handleNavClick('#contact')}
-              className="hidden sm:flex items-center space-x-2 btn-primary"
-            >
-              <span>Signup</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            {/* Mobile menu button */}
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-dark-700 transition-colors cursor-pointer"
+              onClick={() => handleNavClick('#careers')}
+              className="hidden md:inline-flex items-center space-x-2 bg-[#f7931e] text-black font-semibold px-4 py-2 rounded-full text-sm transition-all duration-500 hover:text-white hover:scale-105 active:scale-95 cursor-pointer relative overflow-hidden group"
+            >
+              <span className="relative z-10">Join our team</span>
+              <ArrowRight className="w-4 h-4 relative z-10" />
+              <span className="absolute -inset-5 bg-[#1e3a5f] rounded-full transform -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500"></span>
+            </button>
+            <button
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className="lg:hidden p-2 rounded-lg hover:bg-dark-700"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-dark-900/95 backdrop-blur-md border-b border-dark-700">
-            <div className="container-custom py-4">
-              <div className="flex flex-col space-y-4">
-                {navigation.map((item) => (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavClick(item.href)}
-                    className="text-left text-gray-300 hover:text-accent-lime transition-colors duration-200 py-2 cursor-pointer"
-                  >
-                    {item.name}
-                  </button>
-                ))}
-                <button 
-                  onClick={() => handleNavClick('#contact')}
-                  className="flex items-center space-x-2 btn-primary justify-center mt-4"
+          <div className="lg:hidden absolute left-0 right-0 top-full bg-dark-900/95 backdrop-blur-xl border-b border-dark-700">
+            <div className="container-custom py-4 space-y-3">
+              {navigation.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavClick(item.href)}
+                  className="block w-full text-left text-gray-200 hover:text-accent-lime py-2"
                 >
-                  <span>Signup</span>
-                  <ArrowRight className="w-4 h-4" />
+                  {item.name}
                 </button>
-              </div>
+              ))}
+              <button
+                onClick={() => handleNavClick('#demo')}
+                className="w-full flex items-center justify-center space-x-2 btn-primary"
+              >
+                <span>Request a Demo</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         )}
       </nav>
     </header>
   )
-} 
+}

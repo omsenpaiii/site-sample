@@ -1,15 +1,18 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import "./css/style.css";
 
 export const metadata: Metadata = {
-  title: 'FinanceX-ClonePro | Modern Financial Platform',
-  description: 'The world\'s most modern financial platform for businesses and individuals. Secure, fast, and reliable financial services.',
-  keywords: 'finance, fintech, banking, payments, financial services, modern banking',
-  authors: [{ name: 'FinanceX Team' }],
-  viewport: 'width=device-width, initial-scale=1',
+  title: 'STGI | Intelligent Lending Technology',
+  description:
+    'Trusted technology partner for banks transforming lending with automation, AI, cloud, and secure workflows across originations, underwriting, and servicing.',
+  keywords: 'lending technology, banking automation, underwriting AI, lending workflows, STGI',
+  authors: [{ name: 'STGI' }],
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -23,9 +26,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`${inter.className} bg-dark-900 text-white antialiased`}>
+      <body className="bg-dark-900 text-white antialiased">
         {children}
       </body>
     </html>
   )
-} 
+}

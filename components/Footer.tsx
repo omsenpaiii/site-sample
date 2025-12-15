@@ -1,147 +1,94 @@
-'use client'
+import { ArrowUpRight, Linkedin } from 'lucide-react'
+import Image from 'next/image'
 
-import { useState, useEffect } from 'react'
-import { Linkedin, Github, Twitter, ExternalLink } from 'lucide-react'
+const companyLinks = [
+  { name: 'Solutions', href: '#solutions' },
+  { name: 'Tech Stack', href: '#tech' },
+  { name: 'Security', href: '#security' },
+]
+
+const connectLinks = [
+  { name: 'About', href: '#about' },
+  { name: 'Careers', href: '#careers' },
+  { name: 'Contact', href: '#contact' },
+]
 
 export default function Footer() {
-  const [mounted, setMounted] = useState(false)
-  const [email, setEmail] = useState('')
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Mock newsletter subscription - frontend only
-    alert('Thank you for subscribing! (This is a demo)')
-    setEmail('')
-  }
-
-  const companyLinks = [
-    { name: 'About Us', href: '#' },
-    { name: 'Careers', href: '#' },
-    { name: 'Blog', href: '#' },
-    { name: 'Pricing', href: '#' }
-  ]
-
-  const resourceLinks = [
-    { name: 'Templates', href: '#' },
-    { name: 'Tutorials', href: '#' },
-    { name: 'Free resources', href: '#' },
-    { name: 'Contract templates', href: '#' }
-  ]
-
-  const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, href: '#' },
-    { name: 'Github', icon: Github, href: '#' },
-    { name: 'Twitter', icon: Twitter, href: '#' },
-    { name: 'Website', icon: ExternalLink, href: '#' }
-  ]
-
-  if (!mounted) {
-    return <div className="h-96 bg-dark-900" />
-  }
-
   return (
-    <footer id="contact" className="bg-dark-900 pt-16 pb-8">
-      <div className="container-custom">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {/* Company Info */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-accent-lime to-accent-green rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-sm">FX</span>
+    <footer className="bg-dark-900 border-t border-dark-700 pt-12 pb-6">
+      <div className="container-custom space-y-10">
+        <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div className="space-y-3">
+            <div className="flex items-center space-x-3">
+              <div className="relative w-45 h-25">
+                <Image
+                  src="/assets/logos/logo3.png"
+                  alt="STGI Logo"
+                  width={180}
+                  height={100}
+                  className="object-contain"
+                />
               </div>
-              <span className="text-xl font-bold text-white">FinanceX</span>
             </div>
-            <p className="text-gray-400 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            <p className="text-gray-400 max-w-md">
+              Transforming lending with automation, AI, and cloud-native workflows tailored for regulated financial
+              institutions.
             </p>
+          </div>
+
+          <div className="flex gap-12 md:justify-center">
+            <div>
+              <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
+              <div className="space-y-3">
+                {companyLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="block text-gray-400 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+            </div>
             
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => {
-                const IconComponent = social.icon
-                return (
+            <div>
+              <h3 className="text-white font-semibold text-lg mb-4">Connect</h3>
+              <div className="space-y-3">
+                {connectLinks.map((link) => (
                   <a
-                    key={social.name}
-                    href={social.href}
-                    className="w-10 h-10 bg-dark-700 hover:bg-accent-lime rounded-lg flex items-center justify-center transition-colors group cursor-pointer"
+                    key={link.name}
+                    href={link.href}
+                    className="block text-gray-400 hover:text-white transition-colors"
                   >
-                    <IconComponent className="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" />
+                    {link.name}
                   </a>
-                )
-              })}
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Company Links */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-white">Company</h3>
-            <ul className="space-y-3">
-              {companyLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-accent-lime transition-colors cursor-pointer"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-white">Resources</h3>
-            <ul className="space-y-3">
-              {resourceLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-accent-lime transition-colors cursor-pointer"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-white">Join Our Newsletter</h3>
-            <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                required
-                className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-lime transition-colors cursor-text"
-              />
-              <button
-                type="submit"
-                className="w-full btn-primary"
-              >
-                Subscribe
-              </button>
-            </form>
-            <p className="text-gray-400 text-sm">
-              * Will send you weekly updates for your better finance management.
-            </p>
+          <div className="flex items-center justify-start md:justify-end space-x-3">
+            <a
+              href="#demo"
+              className="btn-primary inline-flex items-center space-x-2"
+            >
+              <span>Request a Demo</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/stgi-tech/"
+              className="w-11 h-11 rounded-full bg-dark-800 border border-dark-700 hover:border-accent-lime/50 flex items-center justify-center"
+            >
+              <Linkedin className="w-5 h-5 text-accent-lime" />
+            </a>
           </div>
         </div>
-
-        {/* Copyright */}
-        <div className="border-t border-dark-700 pt-8">
-          <div className="text-center text-gray-400">
-            <p>Copyright © Kartik Bansal 2022. All Rights Reserved.</p>
-          </div>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between text-gray-500 text-sm">
+          <p>© {new Date().getFullYear()} STGI. All rights reserved.</p>
+          <p>Controls & Disclosures - STGI</p>
         </div>
       </div>
     </footer>
   )
-} 
+}

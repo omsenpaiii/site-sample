@@ -21,15 +21,15 @@ module.exports = {
           900: '#14532d',
         },
         accent: {
-          lime: '#84cc16',
-          green: '#10b981',
-          yellow: '#eab308',
+          lime: '#f7931e', // primary orange
+          green: '#ffb347', // soft amber/orange
+          yellow: '#ffd699',
         },
         dark: {
-          900: '#0a0a0a',
-          800: '#1a1a1a',
-          700: '#2a2a2a',
-          600: '#3a3a3a',
+          900: '#0b1f33', // deep midnight blue
+          800: '#0f2f4a',
+          700: '#14486b',
+          600: '#1c5d82',
         }
       },
       fontFamily: {
