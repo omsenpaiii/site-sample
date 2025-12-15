@@ -106,10 +106,10 @@ export default function Header() {
                 </button>
               ))}
               <button
-                onClick={() => handleNavClick('#demo')}
+                onClick={() => handleNavClick('#careers')}
                 className="w-full flex items-center justify-center space-x-2 btn-primary"
               >
-                <span>Request a Demo</span>
+                <span>Join our team</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

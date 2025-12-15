@@ -18,8 +18,8 @@ export default function Footer() {
     <footer className="bg-dark-900 border-t border-dark-700 pt-12 pb-6">
       <div className="container-custom space-y-10">
         <div className="grid md:grid-cols-3 gap-8 items-start">
-          <div className="space-y-3">
-            <div className="flex items-center space-x-3">
+          <div className="space-y-3 text-center md:text-left">
+            <div className="flex items-center space-x-3 justify-center md:justify-start">
               <div className="relative w-45 h-25">
                 <Image
                   src="/assets/logos/logo3.png"
@@ -30,14 +30,14 @@ export default function Footer() {
                 />
               </div>
             </div>
-            <p className="text-gray-400 max-w-md text-xs">
+            <p className="text-gray-400 max-w-md text-xs mx-auto md:mx-0">
               Transforming lending with automation, AI, and cloud-native workflows tailored for regulated financial
               institutions.
             </p>
           </div>
 
-          <div className="flex gap-12 md:justify-center">
-            <div>
+          <div className="flex gap-12 justify-center">
+            <div className="text-center md:text-left">
               <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
               <div className="space-y-3">
                 {companyLinks.map((link) => (
@@ -52,7 +52,7 @@ export default function Footer() {
               </div>
             </div>
             
-            <div>
+            <div className="text-center md:text-left">
               <h3 className="text-white font-semibold text-lg mb-4">Connect</h3>
               <div className="space-y-3">
                 {connectLinks.map((link) => (
@@ -68,7 +68,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex items-center justify-start md:justify-end space-x-3">
+          <div className="flex items-center justify-center md:justify-end space-x-3">
             <a
               href="#demo"
               className="btn-primary inline-flex items-center space-x-2"
@@ -84,7 +84,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between text-gray-500 text-sm">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between text-gray-500 text-sm text-center md:text-left space-y-2 md:space-y-0">
           <p>© {new Date().getFullYear()} STGI. All rights reserved.</p>
           <a href="#contact" className="hover:text-accent-lime transition-colors">
             Controls & Disclosures - STGI
