@@ -30,7 +30,7 @@ export default function Footer() {
                 />
               </div>
             </div>
-            <p className="text-gray-400 max-w-md">
+            <p className="text-gray-400 max-w-md text-xs">
               Transforming lending with automation, AI, and cloud-native workflows tailored for regulated financial
               institutions.
             </p>
