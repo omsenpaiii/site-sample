@@ -45,7 +45,7 @@ export default function ContactSection() {
                 name="name"
                 placeholder="Your Name*"
                 required
-                className="w-full bg-white text-dark-900 px-4 py-4 rounded-lg border-0 focus:ring-2 focus:ring-accent-lime placeholder:text-gray-500 font-medium"
+                className="w-full bg-white text-dark-900 px-4 py-4 rounded-lg border-0 focus:ring-2 focus:ring-[#1e3a5f] placeholder:text-gray-500 font-medium"
               />
             </div>
 
@@ -56,14 +56,14 @@ export default function ContactSection() {
                 name="email"
                 placeholder="Email Address*"
                 required
-                className="w-full bg-white text-dark-900 px-4 py-4 rounded-lg border-0 focus:ring-2 focus:ring-accent-lime placeholder:text-gray-500 font-medium"
+                className="w-full bg-white text-dark-900 px-4 py-4 rounded-lg border-0 focus:ring-2 focus:ring-[#1e3a5f] placeholder:text-gray-500 font-medium"
               />
               <input
                 type="tel"
                 name="phone"
                 placeholder="Phone Number (xxx-xxx-xxxx)*"
                 required
-                className="w-full bg-white text-dark-900 px-4 py-4 rounded-lg border-0 focus:ring-2 focus:ring-accent-lime placeholder:text-gray-500 font-medium"
+                className="w-full bg-white text-dark-900 px-4 py-4 rounded-lg border-0 focus:ring-2 focus:ring-[#1e3a5f] placeholder:text-gray-500 font-medium"
               />
             </div>
 
@@ -74,7 +74,7 @@ export default function ContactSection() {
                 placeholder="Message*"
                 required
                 rows={6}
-                className="w-full bg-white text-dark-900 px-4 py-4 rounded-lg border-0 focus:ring-2 focus:ring-accent-lime placeholder:text-gray-500 font-medium resize-y"
+                className="w-full bg-white text-dark-900 px-4 py-4 rounded-lg border-0 focus:ring-2 focus:ring-[#1e3a5f] placeholder:text-gray-500 font-medium resize-y"
               />
             </div>
 
