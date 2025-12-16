@@ -18,6 +18,7 @@ export default function ContactSection() {
               <div className="space-y-2">
                 <p className="font-semibold text-white">Our Offices:</p>
                 <p className="text-sm">5050 Ritter Rd Suite B, Mechanicsburg, PA 17055</p>
+                <p className="text-sm">STGC - 100, Kellogg Lane, London, Ontario, Canada</p>
                 <p className="text-sm">Socomo Technologies Building, Sector 22, Budanpur, Haryana 134116</p>
               </div>
             </div>

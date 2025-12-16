@@ -8,7 +8,7 @@ const companyLinks = [
 ]
 
 const connectLinks = [
-  { name: 'About', href: '#about' },
+  { name: 'About Us', href: '#about' },
   { name: 'Careers', href: '#careers' },
   { name: 'Contact', href: '#contact' },
 ]

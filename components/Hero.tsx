@@ -111,7 +111,7 @@ export default function Hero() {
 
                     <div className="space-y-4">
                       <div className="text-white font-mono text-l tracking-wider">
-                        Loan Originsation Systems
+                        Loan Origination Systems
                       </div>
                       <div className="flex justify-between items-end">
                         <div>

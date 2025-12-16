@@ -22,7 +22,7 @@ export default function TechStackSection() {
   return (
     <section id="tech" className="section-padding bg-dark-800/60 border-y border-dark-700">
       <div className="container-custom">
-        <p className="text-sm uppercase tracking-[0.25em] text-accent-lime mb-3">Technology Stack</p>
+        <p className="text-sm uppercase tracking-[0.25em] text-accent-lime mb-3">Technology</p>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <h2 className="text-3xl md:text-4xl font-bold">Cloud-native and analytics-first</h2>
           <p className="text-gray-300 max-w-2xl">
