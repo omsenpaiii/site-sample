@@ -73,7 +73,7 @@ export default function Header() {
 
           <div className="flex items-center space-x-4">
             <button
-              onClick={() => handleNavClick('#careers')}
+              onClick={() => handleNavClick('#demo')}
               className="hidden md:inline-flex items-center space-x-2 bg-[#f7931e] text-black font-semibold px-4 py-2 rounded-full text-sm transition-all duration-500 hover:text-white hover:scale-105 active:scale-95 cursor-pointer relative overflow-hidden group"
             >
               <span className="relative z-10">Join our team</span>
@@ -99,13 +99,13 @@ export default function Header() {
                   className="block w-full text-left text-gray-200 hover:text-accent-lime py-2"
                 >
                   {item.name}
-                </button>
-              ))}
+              </button>
+              ))})
               <button
-                onClick={() => handleNavClick('#careers')}
+                onClick={() => handleNavClick('#demo')}
                 className="w-full flex items-center justify-center space-x-2 btn-primary"
               >
-                <span>Join our team</span>
+                <span>Request a Demo</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
