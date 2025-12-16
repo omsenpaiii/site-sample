@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const companyLinks = [
   { name: 'Solutions', href: '#solutions' },
-  { name: 'Tech Stack', href: '#tech' },
+  { name: 'Technology', href: '#tech' },
   { name: 'Security', href: '#security' },
 ]
 

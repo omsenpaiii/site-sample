@@ -8,7 +8,7 @@ export default function AboutSection() {
           <p className="text-sm uppercase tracking-[0.25em] text-accent-lime">Company</p>
           <h2 className="text-3xl md:text-4xl font-bold">About Us</h2>
           <p className="text-gray-300 leading-relaxed">
-            We are bankers and we love technology – which lands us in a unique spot where we understand the banking
+            We have deep banking roots and we love technology – which lands us in a unique spot where we understand the banking
             problems deeply and provide optimal solutions. We leverage technology to solve core banking problems
             quickly.
           </p>
@@ -47,17 +47,6 @@ export default function AboutSection() {
             Empower financial institutions to lend better, faster, and smarter.
             <br/>
           </p>
-
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-accent-lime/10 to-accent-green/10 border border-accent-lime/30 space-y-2">
-            <div className="flex items-center space-x-2 text-accent-lime">
-              <HeartHandshake className="w-5 h-5" />
-              <p className="text-sm uppercase tracking-[0.2em]">Our Culture</p>
-            </div>
-            <p className="text-gray-200">
-              With 90% of our team joining through referrals, STGI is built on a strong culture of trust, collaboration,
-              and long-term commitment. We hire people who think like owners and innovate like builders.
-            </p>
-          </div>
         </div>
       </div>
     </section>

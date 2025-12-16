@@ -11,7 +11,7 @@ export default function Header() {
   const navigation = [
     { name: 'Home', href: '#home' },
     { name: 'Solutions', href: '#solutions' },
-    { name: 'Tech Stack', href: '#tech' },
+    { name: 'Technology', href: '#tech' },
     { name: 'Security', href: '#security' },
     { name: 'About', href: '#about' },
     { name: 'Careers', href: '#careers' },
@@ -46,20 +46,16 @@ export default function Header() {
         <div className="flex items-center justify-between py-4">
           <button
             onClick={() => handleNavClick('#home')}
-            className="flex items-center space-x-3 group cursor-pointer"
+            className="flex items-center space-x-3 group cursor-pointer mt-2"
           >
-            <div className="relative w-15 h-15">
+            <div className="relative w-36 h-20">
               <Image
-                src="/assets/logos/logo.png"
+                src="/assets/logos/logo3.png"
                 alt="STGI Logo"
-                width={60}
-                height={60}
+                width={140}
+                height={80}
                 className="object-contain"
               />
-            </div>
-            <div className="text-left">
-              <p className="text-xs text-gray-400 uppercase tracking-[0.2em]">Lending Platforms By</p>
-              <p className="text-lg font-semibold group-hover:text-accent-lime">Summit Tech Group India</p>
             </div>
           </button>
 

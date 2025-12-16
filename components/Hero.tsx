@@ -29,7 +29,7 @@ export default function Hero() {
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Transforming
-                Lending <span className="gradient-text">Platforms</span>
+                Lending <span className="gradient-text">Ecosystem</span>
             </h1>
             <p className="text-lg text-gray-300 leading-relaxed max-w-2xl font-semibold">
               Accelerate Loan Processing with Precision, Intelligence, and Ease.

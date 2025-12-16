@@ -8,7 +8,7 @@ export default function SecuritySection() {
           <p className="text-sm uppercase tracking-[0.25em] text-accent-lime">Security & Compliance</p>
           <h2 className="text-3xl md:text-4xl font-bold">Enterprise-grade controls for regulated banking</h2>
           <p className="text-gray-300 leading-relaxed">
-            ISO Certified / ISO 27001 Certified. Enterprise-grade security, compliance, and controls across our
+            ISO27001:2022 Certified. Enterprise-grade security, compliance, and controls across our
             platforms. Banking-grade privacy, encryption, access controls, and audit trails keep your data protected end
             to end.
           </p>
