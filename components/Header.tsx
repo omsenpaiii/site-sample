@@ -76,7 +76,7 @@ export default function Header() {
               onClick={() => handleNavClick('#demo')}
               className="hidden md:inline-flex items-center space-x-2 bg-[#f7931e] text-black font-semibold px-4 py-2 rounded-full text-sm transition-all duration-500 hover:text-white hover:scale-105 active:scale-95 cursor-pointer relative overflow-hidden group"
             >
-              <span className="relative z-10">Join our team</span>
+              <span className="relative z-10">Request a Demo</span>
               <ArrowRight className="w-4 h-4 relative z-10" />
               <span className="absolute -inset-5 bg-[#1e3a5f] rounded-full transform -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500"></span>
             </button>
