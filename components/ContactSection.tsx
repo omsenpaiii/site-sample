@@ -4,7 +4,7 @@ import {ArrowRight, Mail, MapPin } from 'lucide-react'
 export default function ContactSection() {
   return (
     <section id="contact" className="section-padding bg-dark-800/60 border-t border-dark-700">
-      <div className="container-custom grid lg:grid-cols-[1.5fr_1fr] gap-10">
+      <div className="container-custom grid lg:grid-cols-2 gap-10">
         <div className="space-y-6">
           <p className="text-sm uppercase tracking-[0.25em] text-accent-lime">Contact</p>
           <h2 className="text-4xl md:text-5xl font-bold">Let's Connect</h2>

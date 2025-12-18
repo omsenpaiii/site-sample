@@ -5,7 +5,21 @@ import { ArrowRight, CreditCard, ShieldCheck, Sparkles, Wifi } from 'lucide-reac
 export default function Hero() {
   const scrollToDemo = () => {
     const el = document.querySelector('#demo')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (el) {
+      const headerHeight = 80
+      const windowHeight = window.innerHeight
+      const elementHeight = el.getBoundingClientRect().height
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset
+      
+      // Center the section vertically on screen
+      const centerOffset = (windowHeight - elementHeight) / 2
+      const offsetPosition = elementPosition - headerHeight - Math.max(centerOffset, 0)
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
   }
 
   return (
