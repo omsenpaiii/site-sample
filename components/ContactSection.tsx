@@ -75,7 +75,7 @@ export default function ContactSection() {
               <input
                 type="tel"
                 name="phone"
-                placeholder="Phone Number (xxx-xxx-xxxx)*"
+                placeholder="Phone (xxx-xxx-xxxx)*"
                 required
                 className="w-full bg-white text-dark-900 px-4 py-4 rounded-lg border-0 focus:ring-2 focus:ring-[#1e3a5f] placeholder:text-gray-500 font-medium"
               />

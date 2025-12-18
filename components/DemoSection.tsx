@@ -12,8 +12,22 @@ export default function DemoSection() {
   }
 
   return (
-    <section id="demo" className="section-padding bg-gradient-to-r from-accent-lime/15 via-dark-800 to-accent-green/10 border-y border-dark-700">
-      <div className="container-custom grid lg:grid-cols-2 gap-10 items-center">
+    <section id="demo" className="section-padding relative border-y border-dark-700 overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+      >
+        <source src="/videos/bg-video-careers.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-dark-900/70" />
+      
+      <div className="container-custom grid lg:grid-cols-2 gap-10 items-center relative z-10">
         <div className="space-y-4">
           <p className="text-sm uppercase tracking-[0.25em] text-accent-lime">Request a Demo</p>
           <h2 className="text-3xl md:text-4xl font-bold">Experience how modern lending technology performs</h2>
