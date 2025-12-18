@@ -1,6 +1,16 @@
+'use client'
+
 import { CalendarDays, PhoneCall } from 'lucide-react'
 
 export default function DemoSection() {
+  const openCalendly = () => {
+    if (typeof window !== 'undefined' && (window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({
+        url: 'https://calendly.com/omatworks'
+      })
+    }
+  }
+
   return (
     <section id="demo" className="section-padding bg-gradient-to-r from-accent-lime/15 via-dark-800 to-accent-green/10 border-y border-dark-700">
       <div className="container-custom grid lg:grid-cols-2 gap-10 items-center">
@@ -22,7 +32,10 @@ export default function DemoSection() {
               Accelerate loan processing with precision, intelligence, and ease. We’ll tailor the walkthrough to your
               lending environment and regulatory requirements.
             </p>
-            <button className="btn-primary w-full justify-center text-lg py-4">
+            <button 
+              onClick={openCalendly}
+              className="btn-primary w-full justify-center text-lg py-4"
+            >
               <span>Schedule a Demo</span>
               <PhoneCall className="w-5 h-5 ml-2" />
             </button>
