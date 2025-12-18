@@ -24,7 +24,6 @@ export default function Home() {
       <SecuritySection />
       <DemoSection />
       <AboutSection />
-      <ValuesSection />
       <CareersSection />
       <ContactSection />
       <Footer />
