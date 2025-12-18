@@ -38,7 +38,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark-900 border-t border-dark-700 pt-12 pb-6">
       <div className="container-custom space-y-10">
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-12">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-10">
           {/* Left Section - STGI Logo & Description */}
           <div className="space-y-3 text-center lg:text-left max-w-sm mx-auto lg:mx-0">
             <button
@@ -61,57 +61,54 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Middle Section - ISO Certification & Navigation */}
-          <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 justify-center lg:justify-end items-center sm:items-start">
-            {/* ISO Certification Logo */}
-            <div className="flex items-center justify-center order-1 sm:order-1">
-              <div className="relative w-28 h-28 sm:w-32 sm:h-32">
-                <Image
-                  src="/images/iso-certified-company.png"
-                  alt="ISO Certified Company"
-                  width={128}
-                  height={128}
-                  className="object-contain"
-                />
+          {/* ISO Certification Logo */}
+          <div className="flex items-center justify-center lg:justify-center order-2 lg:order-none">
+            <div className="relative w-28 h-28 sm:w-32 sm:h-32">
+              <Image
+                src="/images/iso-certified-company.png"
+                alt="ISO Certified Company"
+                width={128}
+                height={128}
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Middle Section - Navigation */}
+          <div className="flex gap-6 sm:gap-8 lg:gap-10 justify-center lg:justify-start items-center sm:items-start order-3 lg:order-none lg:ml-14">
+            <div className="text-center sm:text-left">
+              <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
+              <div className="space-y-3">
+                {companyLinks.map((link) => (
+                  <button
+                    key={link.name}
+                    onClick={() => handleNavClick(link.href)}
+                    className="block text-gray-400 hover:text-white transition-colors cursor-pointer"
+                  >
+                    {link.name}
+                  </button>
+                ))}
               </div>
             </div>
-
-            {/* Navigation Columns */}
-            <div className="flex gap-8 sm:gap-12 order-2 sm:order-2">
-              <div className="text-center sm:text-left">
-                <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
-                <div className="space-y-3">
-                  {companyLinks.map((link) => (
-                    <button
-                      key={link.name}
-                      onClick={() => handleNavClick(link.href)}
-                      className="block text-gray-400 hover:text-white transition-colors cursor-pointer"
-                    >
-                      {link.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="text-center sm:text-left">
-                <h3 className="text-white font-semibold text-lg mb-4">Connect</h3>
-                <div className="space-y-3">
-                  {connectLinks.map((link) => (
-                    <button
-                      key={link.name}
-                      onClick={() => handleNavClick(link.href)}
-                      className="block text-gray-400 hover:text-white transition-colors cursor-pointer"
-                    >
-                      {link.name}
-                    </button>
-                  ))}
-                </div>
+            
+            <div className="text-center sm:text-left">
+              <h3 className="text-white font-semibold text-lg mb-4">Connect</h3>
+              <div className="space-y-3">
+                {connectLinks.map((link) => (
+                  <button
+                    key={link.name}
+                    onClick={() => handleNavClick(link.href)}
+                    className="block text-gray-400 hover:text-white transition-colors cursor-pointer"
+                  >
+                    {link.name}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Right Section - CTA & Social */}
-          <div className="flex items-center justify-center lg:justify-end space-x-3">
+          <div className="flex items-center justify-center lg:justify-end lg:ml-auto space-x-3">
             <button
               onClick={() => handleNavClick('#demo')}
               className="btn-primary inline-flex items-center space-x-2 cursor-pointer"
