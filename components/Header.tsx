@@ -30,7 +30,19 @@ export default function Header() {
     setIsMenuOpen(false)
     const el = document.querySelector(href)
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
+      const headerHeight = 70
+      const windowHeight = window.innerHeight
+      const elementHeight = el.getBoundingClientRect().height
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset
+      
+      // Center the section vertically on screen
+      const centerOffset = (windowHeight - elementHeight) / 2
+      const offsetPosition = elementPosition - headerHeight - Math.max(centerOffset, 0)
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
     }
   }
 

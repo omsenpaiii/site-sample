@@ -1,10 +1,10 @@
 import { ArrowRight, Briefcase } from 'lucide-react'
 
 const reasons = [
-  'Build next-generation lending platforms.',
+  'Build next-generation Fintech products & platforms.',
   'Work closely with domain experts in credit, fraud, and underwriting.',
   'Grow fast in an entrepreneurial, ownership-driven environment.',
-  'Solve meaningful problems that impact millions of borrowers.',
+  'Solve meaningful problems that impact millions of users of the platforms.',
   'Enjoy a flexible, trust-based, high-performance culture.',
 ]
 

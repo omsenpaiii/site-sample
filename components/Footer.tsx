@@ -1,3 +1,5 @@
+'use client'
+
 import { ArrowUpRight, Linkedin } from 'lucide-react'
 import Image from 'next/image'
 
@@ -14,12 +16,34 @@ const connectLinks = [
 ]
 
 export default function Footer() {
+  const handleNavClick = (href: string) => {
+    const el = document.querySelector(href)
+    if (el) {
+      const headerHeight = 80
+      const windowHeight = window.innerHeight
+      const elementHeight = el.getBoundingClientRect().height
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset
+      
+      // Center the section vertically on screen
+      const centerOffset = (windowHeight - elementHeight) / 2
+      const offsetPosition = elementPosition - headerHeight - Math.max(centerOffset, 0)
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <footer className="bg-dark-900 border-t border-dark-700 pt-12 pb-6">
       <div className="container-custom space-y-10">
         <div className="grid md:grid-cols-3 gap-8 items-start">
           <div className="space-y-3 text-center md:text-left">
-            <div className="flex items-center space-x-3 justify-center md:justify-start">
+            <button
+              onClick={() => handleNavClick('#home')}
+              className="flex items-center space-x-3 justify-center md:justify-start cursor-pointer"
+            >
               <div className="relative w-45 h-25">
                 <Image
                   src="/assets/logos/logo3.png"
@@ -29,7 +53,7 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-            </div>
+            </button>
             <p className="text-gray-400 max-w-md text-xs mx-auto md:mx-0">
               Transforming lending with automation, AI, and cloud-native workflows tailored for regulated financial
               institutions.
@@ -41,13 +65,13 @@ export default function Footer() {
               <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
               <div className="space-y-3">
                 {companyLinks.map((link) => (
-                  <a
+                  <button
                     key={link.name}
-                    href={link.href}
-                    className="block text-gray-400 hover:text-white transition-colors"
+                    onClick={() => handleNavClick(link.href)}
+                    className="block text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>
@@ -56,26 +80,26 @@ export default function Footer() {
               <h3 className="text-white font-semibold text-lg mb-4">Connect</h3>
               <div className="space-y-3">
                 {connectLinks.map((link) => (
-                  <a
+                  <button
                     key={link.name}
-                    href={link.href}
-                    className="block text-gray-400 hover:text-white transition-colors"
+                    onClick={() => handleNavClick(link.href)}
+                    className="block text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>
           </div>
 
           <div className="flex items-center justify-center md:justify-end space-x-3">
-            <a
-              href="#demo"
-              className="btn-primary inline-flex items-center space-x-2"
+            <button
+              onClick={() => handleNavClick('#demo')}
+              className="btn-primary inline-flex items-center space-x-2 cursor-pointer"
             >
               <span>Request a Demo</span>
               <ArrowUpRight className="w-4 h-4" />
-            </a>
+            </button>
             <a
               href="https://www.linkedin.com/company/stgi-tech/"
               className="w-11 h-11 rounded-full bg-dark-800 border border-dark-700 hover:border-accent-lime/50 flex items-center justify-center"
@@ -86,9 +110,9 @@ export default function Footer() {
         </div>
         <div className="flex flex-col md:flex-row md:items-center md:justify-between text-gray-500 text-sm text-center md:text-left space-y-2 md:space-y-0">
           <p>© {new Date().getFullYear()} STGI. All rights reserved.</p>
-          <a href="#contact" className="hover:text-accent-lime transition-colors">
+          <button onClick={() => handleNavClick('#contact')} className="hover:text-accent-lime transition-colors cursor-pointer">
             Controls & Disclosures - STGI
-          </a>
+          </button>
         </div>
       </div>
     </footer>
