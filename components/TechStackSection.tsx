@@ -12,7 +12,7 @@ const stack = [
       'Infrastructure automation, monitoring, and cost optimization',
       'Support for DevOps, CI/CD pipelines, and cloud governance',
     ],
-    logos: ['/images/logo-01.svg', '/images/logo-02.svg', '/images/logo-03.svg', '/images/logo-04.svg'],
+    logos: ['/images/logo3.png', '/images/logo-02.svg', '/images/logo-03.svg', '/images/logo-04.svg'],
   },
   {
     title: 'Data & Analytics Enablement',
