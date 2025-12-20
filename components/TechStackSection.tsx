@@ -1,6 +1,9 @@
-import Image from 'next/image'
+'use client'
 
-const stack = [
+import Image from 'next/image'
+import { useState } from 'react'
+
+const services = [
   {
     title: 'Cloud & Infrastructure Services',
     tagline: 'AWS-Native. Secure. Scalable.',
@@ -12,7 +15,7 @@ const stack = [
       'Infrastructure automation, monitoring, and cost optimization',
       'Support for DevOps, CI/CD pipelines, and cloud governance',
     ],
-    logos: ['/images/logo3.png', '/images/logo-02.svg', '/images/logo-03.svg', '/images/logo-04.svg'],
+    icon: '/images/logo3.png',
   },
   {
     title: 'Data & Analytics Enablement',
@@ -25,7 +28,7 @@ const stack = [
       'Real-time and batch analytics for lending decisions',
       'Auditability, explainability, and reporting support',
     ],
-    logos: ['/images/logo-05.svg', '/images/logo-06.svg', '/images/logo-07.svg', '/images/logo-08.svg'],
+    icon: '/images/Datadog.png',
   },
   {
     title: 'Robotics & Process Automation (RPA)',
@@ -38,11 +41,11 @@ const stack = [
       'Reduced manual effort and operational risk',
       'Faster turnaround times and improved accuracy',
     ],
-    logos: ['/images/logo-09.svg', '/images/logo-01.svg', '/images/logo-02.svg', '/images/logo-03.svg'],
+    icon: '/images/UiPath.png',
   },
   {
-    title: 'Integrations & Ecosystem Connectivity',
-    tagline: 'Connect Seamlessly Across Systems',
+    title: 'Connect Seamlessly Across Systems',
+    tagline: 'Integrations & Ecosystem Connectivity',
     description: 'Our platform integrates effortlessly with your existing and partner ecosystems.',
     bullets: [
       'API-driven integrations with core banking systems',
@@ -51,7 +54,7 @@ const stack = [
       'Event-driven and real-time data exchange',
       'Secure, scalable, and extensible integration frameworks',
     ],
-    logos: ['/images/logo-04.svg', '/images/logo-05.svg', '/images/logo-06.svg', '/images/logo-07.svg'],
+    icon: '/images/postman.png',
   },
   {
     title: 'Implementation & Ongoing Technology Support',
@@ -64,11 +67,13 @@ const stack = [
       'Continuous enhancements and technology upgrades',
       'Dedicated support for production stability and growth',
     ],
-    logos: ['/images/logo-08.svg', '/images/logo-09.svg', '/images/logo-01.svg', '/images/logo-02.svg'],
+    icon: '/images/argocd.png',
   },
 ]
 
 export default function TechStackSection() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
   return (
     <section id="tech" className="section-padding bg-dark-800/60 border-y border-dark-700">
       <div className="container-custom">
@@ -81,41 +86,101 @@ export default function TechStackSection() {
           </p>
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-3xl border border-dark-700/70 bg-dark-900/40">
-          {stack.map((item, index) => (
-            <div
-              key={item.title}
-              className={`grid gap-8 px-6 py-8 sm:px-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-center ${
-                index === 0 ? '' : 'border-t border-dark-700/70'
-              }`}
-            >
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.3em] text-accent-lime">{item.title}</p>
-                  <h3 className="text-2xl md:text-3xl font-semibold text-white">{item.tagline}</h3>
-                </div>
-                <p className="text-gray-300 leading-relaxed">{item.description}</p>
-                <ul className="grid gap-2 text-sm text-gray-200 sm:grid-cols-2">
-                  {item.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-lime" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-                {item.logos.map((logo) => (
-                  <div
-                    key={logo}
-                    className="flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-4"
-                  >
-                    <Image src={logo} alt="" width={120} height={60} className="h-8 w-auto opacity-80" />
+        <div className="mt-10 space-y-4 lg:space-y-0">
+          <div className="hidden overflow-hidden rounded-3xl border border-dark-700/70 bg-dark-900/40 lg:flex">
+            {services.map((item, index) => {
+              const isActive = index === activeIndex
+
+              return (
+                <button
+                  key={item.title}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  className={`relative flex min-h-[360px] min-w-[88px] overflow-hidden text-left transition-all duration-500 ${
+                    isActive ? 'flex-[3]' : 'flex-[0.7]'
+                  } ${index === services.length - 1 ? '' : 'border-r border-dark-700/70'}`}
+                >
+                  <div className="absolute inset-y-0 left-0 z-10 flex w-16 flex-col items-center justify-between border-r border-white/10 bg-dark-900/70 py-6">
+                    <Image
+                      src={item.icon}
+                      alt={`${item.title} icon`}
+                      width={40}
+                      height={40}
+                      className="h-8 w-auto"
+                    />
+                    <span
+                      style={{ writingMode: 'vertical-rl' }}
+                      className="text-xs uppercase tracking-[0.3em] text-gray-200"
+                    >
+                      {item.title}
+                    </span>
                   </div>
-                ))}
-              </div>
-            </div>
-          ))}
+
+                  <div
+                    className={`relative flex w-full min-w-0 flex-col gap-6 px-6 py-8 pl-20 transition-opacity duration-300 lg:flex-row lg:items-center lg:justify-between ${
+                      isActive ? 'opacity-100' : 'lg:opacity-0'
+                    }`}
+                  >
+                    <div className="min-w-0 space-y-4">
+                      <div className="space-y-2">
+                        <p className="text-xs uppercase tracking-[0.3em] text-accent-lime">{item.title}</p>
+                        <h3 className="text-2xl md:text-3xl font-semibold text-white">{item.tagline}</h3>
+                      </div>
+                      <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                      <ul className="grid gap-2 text-sm text-gray-200 sm:grid-cols-2">
+                        {item.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-lime" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="hidden shrink-0 lg:flex">
+                      <div className="flex h-28 w-28 items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <Image src={item.icon} alt={`${item.title} logo`} width={96} height={96} className="h-14 w-auto" />
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              )
+            })}
+          </div>
+
+          <div className="grid gap-4 lg:hidden">
+            {services.map((item, index) => {
+              const isActive = index === activeIndex
+
+              return (
+                <div key={item.title} className="rounded-3xl border border-dark-700/70 bg-dark-900/40">
+                  <button
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    className="flex w-full items-center gap-4 px-6 py-4 text-left"
+                  >
+                    <Image src={item.icon} alt={`${item.title} icon`} width={36} height={36} className="h-8 w-auto" />
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.3em] text-accent-lime">{item.title}</p>
+                      <p className="text-lg font-semibold text-white">{item.tagline}</p>
+                    </div>
+                  </button>
+                  {isActive ? (
+                    <div className="space-y-4 px-6 pb-6">
+                      <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                      <ul className="grid gap-2 text-sm text-gray-200 sm:grid-cols-2">
+                        {item.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-lime" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
