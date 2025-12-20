@@ -146,25 +146,20 @@ export default function SolutionsSection() {
           >
             <ChevronRight className="h-4 w-4" />
           </button>
+        </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 border-t border-dark-700/70 px-6 py-4 sm:px-10">
-            <div className="flex items-center gap-2">
-              {slides.map((slide, index) => (
-                <button
-                  key={slide.title}
-                  type="button"
-                  aria-label={`Go to ${slide.title}`}
-                  onClick={() => goToSlide(index)}
-                  className={`h-2.5 w-2.5 rounded-full transition ${
-                    index === activeIndex ? 'bg-accent-lime' : 'bg-dark-600 hover:bg-dark-500'
-                  }`}
-                />
-              ))}
-            </div>
-            <div className="text-xs uppercase tracking-[0.3em] text-gray-400">
-              {activeIndex + 1} / {slides.length}
-            </div>
-          </div>
+        <div className="mt-4 flex items-center justify-center gap-2">
+          {slides.map((slide, index) => (
+            <button
+              key={slide.title}
+              type="button"
+              aria-label={`Go to ${slide.title}`}
+              onClick={() => goToSlide(index)}
+              className={`h-2.5 w-2.5 rounded-full transition ${
+                index === activeIndex ? 'bg-accent-lime' : 'bg-dark-600 hover:bg-dark-500'
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
