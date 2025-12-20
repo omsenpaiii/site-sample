@@ -87,7 +87,7 @@ export default function CareersSection() {
               cloud-native systems, and mission-critical workflows.
             </p>
           </div>
-          <div className="card bg-dark-800/80 border-accent-lime/40 space-y-4 transition-none hover:bg-dark-800/80 hover:border-accent-lime/40">
+          <div className="card bg-dark-800/80 border-accent-lime/40 space-y-3 transition-none hover:bg-dark-800/80 hover:border-accent-lime/40 max-w-lg justify-self-end p-5 lg:p-6 lg:-mt-4">
             <p className="text-lg font-semibold text-accent-lime">Why Work at STGI?</p>
             <ul className="space-y-3">
               {reasons.map((reason) => (
@@ -112,7 +112,7 @@ export default function CareersSection() {
           </div>
         </div>
 
-        <div className="mt-12 space-y-10">
+        <div className="mt-8 space-y-10">
           <div className="rounded-2xl bg-white border border-gray-200 shadow-xl px-7 py-10 md:px-10 md:py-12">
             <div className="flex items-center gap-4">
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#f7931e]">Value Drivers</p>

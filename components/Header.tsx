@@ -54,17 +54,17 @@ export default function Header() {
       }`}
     >
       <nav className="container-custom">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-3">
           <button
             onClick={() => handleNavClick('#home')}
-            className="flex items-center space-x-3 group cursor-pointer mt-2"
+            className="flex items-center space-x-3 group cursor-pointer"
           >
-            <div className="relative w-44 h-24">
+            <div className="relative w-40 h-20">
               <Image
                 src="/assets/logos/logo3.png"
                 alt="STGI Logo"
-                width={176}
-                height={96}
+                width={160}
+                height={80}
                 className="object-contain"
               />
             </div>

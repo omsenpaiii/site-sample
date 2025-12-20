@@ -3,21 +3,21 @@ import { Building2, Gauge, Workflow } from 'lucide-react'
 const reasons = [
   {
     icon: Building2,
-    title: 'Built for Banks',
+    title: 'Deep Domain Knowledge',
     description:
-      'STGI empowers banks and financial institutions to transform lending operations with automation, AI, advanced analytics, and cloud-based workflows.',
+      'With deep-seated roots in the banking sector, we don’t just offer services; we offer understanding. We speak your language and anticipate the unique regulatory and operational hurdles you face, allowing us to engineer optimal solutions that fit your specific ecosystem.',
   },
   {
     icon: Workflow,
-    title: 'Streamlined Lending',
+    title: 'Technology-First Approach',
     description:
-      'Digitize originations, automate underwriting, and modernize servicing to reduce operational overhead while ensuring compliance at scale.',
+      'We believe that modern problems require modern tools. As a Technology-First organization, our methodology is built around digital transformation. We leverage cutting-edge tech to automate workflows, reduce risk, and solve complex financial challenges with precision and scale.',
   },
   {
     icon: Gauge,
-    title: 'Faster Decisions',
+    title: 'Passionate People',
     description:
-      'Our platform accelerates underwriting decisions, improves consistency, and creates better borrower experiences end-to-end.',
+      'Beyond the code and the spreadsheets, our greatest asset is our people. We are a team of dedicated problem-solvers who are genuinely invested in your growth. We don’t just work for you—we work with you, driven by a passion to ensure your long-term success.',
   },
 ]
 
@@ -28,13 +28,11 @@ export default function WhySection() {
       <div className="container-custom relative z-10">
         <div className="max-w-3xl">
           <p className="text-sm uppercase tracking-[0.25em] text-accent-lime mb-3">
-            Why Lending Institutions Choose STGI
+            Why Financial Institutions Partner with STGI 
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted technology partner for lending leaders</h2>
           <p className="text-gray-300 leading-relaxed">
-            STGI empowers banks and financial institutions to transform their lending operations with automation, AI,
-            advanced analytics, and cloud-based workflows. Our lending technology platform streamlines originations,
-            accelerates underwriting decisions, reduces operational overhead, and ensures compliance at scale.
+            STGI stands at the intersection of traditional banking wisdom and modern 
+            technological innovation. Here is why industry leaders choose us: 
           </p>
         </div>
 
