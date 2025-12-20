@@ -87,7 +87,7 @@ export default function TechStackSection() {
         </div>
 
         <div className="mt-10 space-y-4 lg:space-y-0">
-          <div className="hidden overflow-hidden rounded-3xl border border-dark-700/70 bg-dark-900/40 lg:flex">
+          <div className="hidden items-stretch overflow-hidden rounded-3xl border border-dark-700/60 bg-dark-900/50 lg:flex">
             {services.map((item, index) => {
               const isActive = index === activeIndex
 
@@ -96,7 +96,7 @@ export default function TechStackSection() {
                   key={item.title}
                   type="button"
                   onClick={() => setActiveIndex(index)}
-                  className={`relative flex min-h-[360px] min-w-[88px] overflow-hidden text-left transition-all duration-500 ${
+                  className={`relative flex min-w-[88px] items-stretch overflow-hidden text-left transition-all duration-500 ${
                     isActive ? 'flex-[3]' : 'flex-[0.7]'
                   } ${index === services.length - 1 ? '' : 'border-r border-dark-700/70'}`}
                 >
@@ -117,28 +117,28 @@ export default function TechStackSection() {
                   </div>
 
                   <div
-                    className={`relative flex w-full min-w-0 flex-col gap-6 px-6 py-8 pl-20 transition-opacity duration-300 lg:flex-row lg:items-center lg:justify-between ${
+                    className={`relative flex w-full min-w-0 flex-col gap-2 px-4 py-3 pl-20 transition-opacity duration-300 lg:flex-row lg:items-center lg:justify-between ${
                       isActive ? 'opacity-100' : 'lg:opacity-0'
                     }`}
                   >
-                    <div className="min-w-0 space-y-4">
-                      <div className="space-y-2">
-                        <p className="text-xs uppercase tracking-[0.3em] text-accent-lime">{item.title}</p>
-                        <h3 className="text-2xl md:text-3xl font-semibold text-white">{item.tagline}</h3>
+                    <div className="min-w-0 space-y-1.5">
+                      <div className="space-y-0.5">
+                        <p className="text-[10px] uppercase tracking-[0.3em] text-accent-lime">{item.title}</p>
+                        <h3 className="text-lg md:text-xl font-semibold text-white leading-tight">{item.tagline}</h3>
                       </div>
-                      <p className="text-gray-300 leading-relaxed">{item.description}</p>
-                      <ul className="grid gap-2 text-sm text-gray-200 sm:grid-cols-2">
+                      <p className="text-xs text-gray-300 leading-snug">{item.description}</p>
+                      <ul className="grid gap-1 text-[11px] text-gray-200 sm:grid-cols-2 leading-tight">
                         {item.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-start gap-2">
-                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-lime" />
+                          <li key={bullet} className="flex items-start gap-1.5">
+                            <span className="mt-0.5 h-0.5 w-0.5 shrink-0 rounded-full bg-accent-lime" />
                             <span>{bullet}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div className="hidden shrink-0 lg:flex">
-                      <div className="flex h-28 w-28 items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-4">
-                        <Image src={item.icon} alt={`${item.title} logo`} width={96} height={96} className="h-14 w-auto" />
+                      <div className="flex h-16 w-16 items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2">
+                        <Image src={item.icon} alt={`${item.title} logo`} width={64} height={64} className="h-10 w-auto" />
                       </div>
                     </div>
                   </div>
