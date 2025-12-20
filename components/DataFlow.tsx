@@ -4,10 +4,10 @@ import Logo02 from "@/public/images/argocd.png";
 import Logo03 from "@/public/images/logo3.png";
 import Logo04 from "@/public/images/mailhog.png";
 import Logo05 from "@/public/images/Datadog.png";
-import Logo06 from "@/public/images/uipath.png";
+import Logo06 from "@/public/images/DocuSign.svg";
 import Logo07 from "@/public/images/postman.png";
 import Logo08 from "@/public/images/posgresql.webp";
-import Logo09 from "@/public/images/logo-09.svg";
+import Logo09 from "@/public/images/fico.webp";
 
 const orbitRadius = 34;
 const innerRing = 18;
@@ -36,7 +36,7 @@ export default function DataFlow() {
   return (
     <section className="bg-gray-100 rounded-3xl mx-4 md:mx-8 lg:mx-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="py-12 md:py-20">
+        <div className="py-2 md:py-2">
           <div className="relative flex h-[360px] items-center justify-center sm:h-[420px] lg:h-[520px]">
             <div className="relative h-full aspect-square">
               <div className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-3xl" />
