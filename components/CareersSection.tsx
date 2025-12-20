@@ -87,18 +87,18 @@ export default function CareersSection() {
               cloud-native systems, and mission-critical workflows.
             </p>
           </div>
-          <div className="card bg-dark-800/80 border-accent-lime/40 space-y-3 transition-none hover:bg-dark-800/80 hover:border-accent-lime/40 max-w-lg justify-self-end p-5 lg:p-6 lg:-mt-4">
-            <p className="text-lg font-semibold text-accent-lime">Why Work at STGI?</p>
-            <ul className="space-y-3">
+          <div className="card bg-dark-800/80 border-accent-lime/40 space-y-2.5 transition-none hover:bg-dark-800/80 hover:border-accent-lime/40 max-w-lg justify-self-end p-4 lg:p-5 lg:-mt-8">
+            <p className="text-base font-semibold text-accent-lime">Why Work at STGI?</p>
+            <ul className="space-y-2.5">
               {reasons.map((reason) => (
-                <li key={reason} className="flex items-start space-x-3">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-accent-lime" />
-                  <p className="text-gray-200">{reason}</p>
+                <li key={reason} className="flex items-start space-x-2.5">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent-lime flex-shrink-0" />
+                  <p className="text-gray-200 text-sm leading-relaxed">{reason}</p>
                 </li>
               ))}
             </ul>
             <button
-              className="relative inline-flex w-full items-center justify-center rounded-lg bg-accent-lime px-6 py-3 font-semibold text-black cursor-pointer overflow-hidden group"
+              className="relative inline-flex w-full items-center justify-center rounded-lg bg-accent-lime px-5 py-2.5 font-semibold text-black cursor-pointer overflow-hidden group text-sm"
               type="button"
               onClick={() => setIsApplyOpen(true)}
             >
@@ -112,7 +112,7 @@ export default function CareersSection() {
           </div>
         </div>
 
-        <div className="mt-8 space-y-10">
+        <div className="mt-6 space-y-10">
           <div className="rounded-2xl bg-white border border-gray-200 shadow-xl px-7 py-10 md:px-10 md:py-12">
             <div className="flex items-center gap-4">
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#f7931e]">Value Drivers</p>

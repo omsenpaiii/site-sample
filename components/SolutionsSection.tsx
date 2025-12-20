@@ -1,4 +1,5 @@
 import { Bot, ClipboardCheck, FileSearch, Layers, Sparkle, Workflow } from 'lucide-react'
+import Image from 'next/image'
 
 const solutions = [
   {
@@ -6,48 +7,56 @@ const solutions = [
     title: 'Covenant & Tickler Management',
     description:
       'Protect portfolio health with an integrated Covenant & Tickler Management solution that keeps risk in check. Track covenant compliance and critical ticklers in real time with a structured review and approval workflow. Reduce surprises, improve visibility, and act early to safeguard returns.',
+    logo: '/images/logo-04.svg',
   },
   {
     icon: Workflow,
     title: 'Post-Disbursement Progress Monitoring',
     description:
       'Ensure ongoing control after or during funding with Post-Disbursement Progress Monitoring. Track milestones, conditions, and usage or milestones of funds through structured reviews and real-time updates. Detect issues early, maintain compliance, and protect portfolio performance throughout the loan lifecycle.',
+    logo: '/images/logo-04.svg',
   },
   {
     icon: Bot,
     title: 'Rule Based Dynamic Workflow Engine',
     description:
       'Automate complex processes with a Rule-Based Dynamic Workflow Engine that adapts in real time. Configure rules to route tasks, trigger approvals, and enforce policy based on data and events. Cut turnaround time, reduce manual errors, and keep operations consistently audit-ready.',
+    logo: '/images/logo-04.svg',
   },
   {
     icon: FileSearch,
     title: 'AI-Enabled Document Scrubbing',
     description:
       'Automatically extract, validate, and flag risks or inconsistencies across large document sets. Reduce manual effort, improve accuracy, and make faster, more confident decisions.',
+    logo: '/images/logo-04.svg',
   },
   {
     icon: ClipboardCheck,
     title: 'Intelligent Document Validation Engine',
     description:
       'Detect and prevent fraud with AI-powered document checks. Automatically identify forged, altered, or inconsistent documents using intelligent pattern analysis. Reduce risk, speed up reviews, and strengthen trust across every transaction.',
+    logo: '/images/logo-04.svg',
   },
   {
     icon: Layers,
     title: 'Advanced Credit Memo Builder',
     description:
       'Automate credit analysis with customizable credit memo templates, ratio calculations, AI summaries, and institution-specific narratives.',
+    logo: '/images/logo-04.svg',
   },
   {
     icon: Sparkle,
     title: 'Configurable and Advanced Spreading Capabilities',
     description:
       'Streamline analysis with Configurable and Advanced Spreading Capabilities in the platform. Easily adapt templates and rules to spread financials across industries, entities, and deal types. Improve accuracy, consistency, and speed from data capture to credit decision.',
+    logo: '/images/logo-04.svg',
   },
   {
-    icon: Sparkle,
+    icon: FileSearch,
     title: 'Advanced Lending Analytics & Insights',
     description:
       'Get real-time dashboards for portfolio performance, borrower behaviour, risk scoring, and trend predictions.',
+    logo: '/images/logo-04.svg',
   },
 ]
 
@@ -66,17 +75,30 @@ export default function SolutionsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="rounded-2xl border border-dark-700/70 bg-dark-900/40 divide-y divide-dark-700/70">
           {solutions.map((solution) => (
             <div
               key={solution.title}
-              className="card h-full flex flex-col space-y-4 border-dark-600 hover:border-accent-lime/40"
+              className="grid gap-6 px-6 py-6 md:grid-cols-[minmax(0,1fr)_180px] md:items-center"
             >
-              <div className="w-12 h-12 rounded-xl bg-accent-lime/10 border border-accent-lime/40 flex items-center justify-center text-accent-lime">
-                <solution.icon className="w-6 h-6" />
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-accent-lime">
+                  <div className="w-11 h-11 rounded-xl bg-accent-lime/10 border border-accent-lime/40 flex items-center justify-center">
+                    <solution.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">{solution.title}</h3>
+                </div>
+                <p className="text-gray-300 leading-relaxed">{solution.description}</p>
               </div>
-              <h3 className="text-xl font-semibold">{solution.title}</h3>
-              <p className="text-gray-300 leading-relaxed">{solution.description}</p>
+              <div className="flex md:justify-end">
+                <Image
+                  src={solution.logo}
+                  alt={`${solution.title} logo`}
+                  width={160}
+                  height={48}
+                  className="h-12 w-auto object-contain opacity-80"
+                />
+              </div>
             </div>
           ))}
         </div>
