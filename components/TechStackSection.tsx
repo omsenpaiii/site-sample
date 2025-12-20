@@ -15,7 +15,7 @@ const services = [
       'Infrastructure automation, monitoring, and cost optimization',
       'Support for DevOps, CI/CD pipelines, and cloud governance',
     ],
-    icon: '/images/logo3.png',
+    icon: '/images/aws.png',
   },
   {
     title: 'Data & Analytics Enablement',
