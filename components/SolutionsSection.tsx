@@ -10,49 +10,57 @@ const solutions = [
     title: 'Covenant & Tickler Management',
     description:
       'Protect portfolio health with an integrated Covenant & Tickler Management solution that keeps risk in check. Track covenant compliance and critical ticklers in real time with a structured review and approval workflow. Reduce surprises, improve visibility, and act early to safeguard returns.',
+    // public/images/slideshow1.png
   },
   {
     icon: Workflow,
     title: 'Post-Disbursement Progress Monitoring',
     description:
       'Ensure ongoing control after or during funding with Post-Disbursement Progress Monitoring. Track milestones, conditions, and usage or milestones of funds through structured reviews and real-time updates. Detect issues early, maintain compliance, and protect portfolio performance throughout the loan lifecycle.',
-  },
+    // public/images/slideshow2.png
+    },
   {
     icon: Bot,
     title: 'Rule Based Dynamic Workflow Engine',
     description:
       'Automate complex processes with a Rule-Based Dynamic Workflow Engine that adapts in real time. Configure rules to route tasks, trigger approvals, and enforce policy based on data and events. Cut turnaround time, reduce manual errors, and keep operations consistently audit-ready.',
-  },
+    // public/images/slideshow3.png
+    },
   {
     icon: FileSearch,
     title: 'AI-Enabled Document Scrubbing',
     description:
       'Automatically extract, validate, and flag risks or inconsistencies across large document sets. Reduce manual effort, improve accuracy, and make faster, more confident decisions.',
+    // public/images/slideshow4.png
   },
   {
     icon: ClipboardCheck,
     title: 'Intelligent Document Validation Engine',
     description:
       'Detect and prevent fraud with AI-powered document checks. Automatically identify forged, altered, or inconsistent documents using intelligent pattern analysis. Reduce risk, speed up reviews, and strengthen trust across every transaction.',
-  },
+    // public/images/slideshow5.png
+    },
   {
     icon: Layers,
     title: 'Advanced Credit Memo Builder',
     description:
       'Automate credit analysis with customizable credit memo templates, ratio calculations, AI summaries, and institution-specific narratives.',
-  },
+    // public/images/slideshow6.png
+    },
   {
     icon: Sparkle,
     title: 'Configurable and Advanced Spreading Capabilities',
     description:
       'Streamline analysis with Configurable and Advanced Spreading Capabilities in the platform. Easily adapt templates and rules to spread financials across industries, entities, and deal types. Improve accuracy, consistency, and speed from data capture to credit decision.',
-  },
+    // public/images/slideshow7.png
+    },
   {
     icon: FileSearch,
     title: 'Advanced Lending Analytics & Insights',
     description:
       'Get real-time dashboards for portfolio performance, borrower behaviour, risk scoring, and trend predictions.',
-  },
+    // public/images/slideshow8.png
+    },
 ]
 
 export default function SolutionsSection() {

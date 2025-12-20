@@ -57,7 +57,7 @@ export default function Header() {
         <div className="flex items-center justify-between py-3">
           <button
             onClick={() => handleNavClick('#home')}
-            className="flex items-center space-x-3 group cursor-pointer"
+            className="flex items-center space-x-3 group cursor-pointer focus:outline-none focus-visible:outline-none"
           >
             <div className="relative w-40 h-20">
               <Image
