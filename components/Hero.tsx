@@ -71,7 +71,7 @@ export default function Hero() {
 
           <div className="relative flex items-center justify-center lg:justify-end">
             <div className="absolute inset-0 bg-gradient-to-tr from-accent-lime/15 to-accent-green/15 rounded-full blur-3xl" />
-            <div className="relative w-full max-w-4xl lg:max-w-5xl">
+            <div className="relative w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl">
               
               {/* Hero Image */}
               <Image
@@ -79,7 +79,7 @@ export default function Hero() {
                 alt="Loans platform dashboard screen"
                 width={1536}
                 height={1005}
-                className="relative z-10 h-auto w-full"
+                className="relative z-10 h-auto w-full scale-125"
                 priority
               />
             </div>
