@@ -6,6 +6,7 @@ import { useState } from 'react'
 const services = [
   {
     title: 'Cloud & Infrastructure Services',
+    sideLabel: 'Cloud Services',
     tagline: 'AWS-Native. Secure. Scalable.',
     description: 'We design and implement cloud architectures optimized for regulated financial environments.',
     bullets: [
@@ -19,6 +20,7 @@ const services = [
   },
   {
     title: 'Data & Analytics Enablement',
+    sideLabel: 'Data & Analytics',
     tagline: 'Turn Data into Actionable Lending Intelligence',
     description: 'We enable data-driven decisioning through modern analytics and AI-ready foundations.',
     bullets: [
@@ -32,6 +34,7 @@ const services = [
   },
   {
     title: 'Robotics & Process Automation (RPA)',
+    sideLabel: 'RPA Automation',
     tagline: 'Automate What Slows You Down',
     description: 'We streamline lending operations using intelligent automation.',
     bullets: [
@@ -45,6 +48,7 @@ const services = [
   },
   {
     title: 'Connect Seamlessly Across Systems',
+    sideLabel: 'Integrations',
     tagline: 'Integrations & Ecosystem Connectivity',
     description: 'Our platform integrates effortlessly with your existing and partner ecosystems.',
     bullets: [
@@ -58,6 +62,7 @@ const services = [
   },
   {
     title: 'Implementation & Ongoing Technology Support',
+    sideLabel: 'Tech Support',
     tagline: 'From Go-Live to Scale',
     description: 'We partner with clients throughout the product lifecycle.',
     bullets: [
@@ -86,65 +91,71 @@ export default function TechStackSection() {
           </p>
         </div>
 
-        <div className="mt-10 space-y-4 lg:space-y-0">
-          <div className="hidden items-stretch overflow-hidden rounded-3xl border border-dark-700/60 bg-dark-900/50 lg:flex">
-            {services.map((item, index) => {
-              const isActive = index === activeIndex
+        <div className="mt-10 space-y-4 lg:space-y-0 lg:pt-8">
+          <div className="hidden lg:block">
+            <div className="overflow-hidden rounded-3xl border border-dark-700/60 bg-dark-900/40">
+              {services.map((item, index) => {
+                const isActive = index === activeIndex
 
-              return (
-                <button
-                  key={item.title}
-                  type="button"
-                  onClick={() => setActiveIndex(index)}
-                  className={`relative flex min-w-[88px] items-stretch overflow-hidden text-left transition-all duration-500 ${
-                    isActive ? 'flex-[3]' : 'flex-[0.7]'
-                  } ${index === services.length - 1 ? '' : 'border-r border-dark-700/70'}`}
-                >
-                  <div className="absolute inset-y-0 left-0 z-10 flex w-16 flex-col items-center justify-between border-r border-white/10 bg-dark-900/70 py-4">
-                    <Image
-                      src={item.icon}
-                      alt={`${item.title} icon`}
-                      width={40}
-                      height={40}
-                      className="h-6 w-auto"
-                    />
-                    <span
-                      style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-                      className="text-[10px] uppercase tracking-[0.3em] text-gray-200"
+                return (
+                  <div key={item.title} className={index === 0 ? '' : 'border-t border-dark-700/60'}>
+                    <button
+                      type="button"
+                      onClick={() => setActiveIndex(index)}
+                      className={`flex w-full items-center justify-between gap-6 px-6 py-4 text-left transition ${
+                        isActive ? 'bg-dark-800/60' : 'hover:bg-dark-800/40'
+                      }`}
                     >
-                      {item.title}
-                    </span>
-                  </div>
+                      <div className="flex items-center gap-4">
+                        <Image src={item.icon} alt={`${item.title} icon`} width={40} height={40} className="h-9 w-auto" />
+                        <div className="min-w-0 space-y-1">
+                          <p className="text-xs uppercase tracking-[0.28em] text-accent-lime">{item.title}</p>
+                          <p className="text-lg font-semibold text-white">{item.tagline}</p>
+                        </div>
+                      </div>
+                    </button>
 
-                  <div
-                    className={`relative flex w-full min-w-0 flex-col gap-1.5 px-3 py-2 pl-20 transition-opacity duration-300 lg:flex-row lg:items-center lg:justify-between ${
-                      isActive ? 'opacity-100' : 'lg:opacity-0'
-                    }`}
-                  >
-                    <div className="min-w-0 space-y-1">
-                      <div className="space-y-0">
-                        <p className="text-[9px] uppercase tracking-[0.3em] text-accent-lime leading-tight">{item.title}</p>
-                        <h3 className="text-base md:text-lg font-semibold text-white leading-tight">{item.tagline}</h3>
-                      </div>
-                      <p className="text-[11px] text-gray-300 leading-tight">{item.description}</p>
-                      <ul className="grid gap-0.5 text-[10px] text-gray-200 sm:grid-cols-2 leading-tight">
-                        {item.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-start gap-1">
-                            <span className="mt-0.5 h-[2px] w-[2px] shrink-0 rounded-full bg-accent-lime" />
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="hidden shrink-0 lg:flex">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-white/10 bg-white/5 p-1.5">
-                        <Image src={item.icon} alt={`${item.title} logo`} width={48} height={48} className="h-8 w-auto" />
+                    <div
+                      aria-hidden={!isActive}
+                      className={`overflow-hidden transition-[max-height] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                        isActive ? 'max-h-[640px]' : 'max-h-0'
+                      }`}
+                    >
+                      <div
+                        className={`px-6 pb-6 pt-2 transition-all duration-500 ease-out motion-reduce:transition-none ${
+                          isActive ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                        }`}
+                      >
+                        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_auto] lg:items-start">
+                          <div className="space-y-3">
+                            <p className="text-base md:text-lg text-gray-200 leading-relaxed">{item.description}</p>
+                            <ul className="grid gap-2 text-sm md:text-base text-gray-200 sm:grid-cols-2 leading-relaxed">
+                              {item.bullets.map((bullet) => (
+                                <li key={bullet} className="flex items-start gap-2">
+                                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-lime" />
+                                  <span>{bullet}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="flex items-center justify-center">
+                            <div className="flex items-center justify-center rounded-2xl bg-white/5 p-3">
+                              <Image
+                                src={item.icon}
+                                alt={`${item.title} logo`}
+                                width={80}
+                                height={80}
+                                className="h-12 w-auto"
+                              />
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </button>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
 
           <div className="grid gap-4 lg:hidden">

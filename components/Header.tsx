@@ -75,12 +75,12 @@ export default function Header() {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="relative text-base uppercase tracking-wide text-gray-300 hover:text-accent-lime group"
+                className="relative text-base uppercase tracking-wide text-gray-300 hover:text-accent-lime group focus:outline-none focus-visible:outline-none"
               >
                 {item.name}
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute left-1/2 top-full mt-1 h-0 w-0 -translate-x-1/2 translate-y-1 border-l-[6px] border-r-[6px] border-b-[6px] border-l-transparent border-r-transparent border-b-[#f7931e] opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-focus-visible:opacity-100 group-focus-visible:translate-y-0"
+                  className="pointer-events-none absolute left-1/2 top-full mt-1 h-0 w-0 -translate-x-1/2 translate-y-1 border-l-[6px] border-r-[6px] border-b-[6px] border-l-transparent border-r-transparent border-b-[#f7931e] opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0"
                 />
               </button>
             ))}
