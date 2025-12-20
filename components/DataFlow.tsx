@@ -23,6 +23,7 @@ const orbitNodes = [
   { logo: Logo08, alt: "Logo 08", angle: 180, size: "h-12 w-12", icon: "h-6 w-auto", delay: "2.4s", muted: true },
   { logo: Logo09, alt: "Logo 09", angle: -135, size: "h-12 w-12", icon: "h-6 w-auto", delay: "2.8s", muted: true },
 ];
+const trailDelays = [0.6, 3.2, 1.5, 4.4, 0.2, 2.7, 3.8, 1.1];
 
 export default function DataFlow() {
   const orbitPoints = orbitNodes.map((node) => {
@@ -55,22 +56,38 @@ export default function DataFlow() {
                   strokeLinecap="round"
                   className="animate-[dash_10s_linear_infinite]"
                 />
-                {orbitPoints.map((point) => (
-                  <line
-                    key={`line-${point.alt}`}
-                    x1="50"
-                    y1="50"
-                    x2={point.x}
-                    y2={point.y}
-                    stroke="#c7d2fe"
-                    strokeWidth="0.7"
-                    strokeLinecap="round"
-                  />
-                ))}
-                {orbitPoints.map((point) => (
-                  <circle key={`node-${point.alt}`} cx={point.x} cy={point.y} r="1.3" fill="#93c5fd" />
-                ))}
-              </svg>
+              {orbitPoints.map((point) => (
+                <line
+                  key={`line-${point.alt}`}
+                  x1="50"
+                  y1="50"
+                  x2={point.x}
+                  y2={point.y}
+                  stroke="#c7d2fe"
+                  strokeWidth="0.7"
+                  strokeLinecap="round"
+                />
+              ))}
+              {orbitPoints.map((point, index) => (
+                <line
+                  key={`trail-${point.alt}`}
+                  x1="50"
+                  y1="50"
+                  x2={point.x}
+                  y2={point.y}
+                  stroke="#60a5fa"
+                  strokeWidth="1"
+                  strokeOpacity="0.7"
+                  strokeLinecap="round"
+                  strokeDasharray="10 18"
+                  className="animate-[dash_12s_linear_infinite]"
+                  style={{ animationDelay: `${trailDelays[index % trailDelays.length]}s` }}
+                />
+              ))}
+              {orbitPoints.map((point) => (
+                <circle key={`node-${point.alt}`} cx={point.x} cy={point.y} r="1.3" fill="#93c5fd" />
+              ))}
+            </svg>
 
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 before:absolute before:-inset-3 before:animate-spin before:rounded-full before:border before:border-transparent before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] before:[background:conic-gradient(from_180deg,transparent,theme(colors.blue.500))_border-box]">
                 <div className="animate-[breath_8s_ease-in-out_infinite_both]">
