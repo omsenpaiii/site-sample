@@ -1,5 +1,8 @@
+'use client'
+
 import { Bot, ClipboardCheck, FileSearch, Layers, Sparkle, Workflow } from 'lucide-react'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 const solutions = [
   {
@@ -7,60 +10,71 @@ const solutions = [
     title: 'Covenant & Tickler Management',
     description:
       'Protect portfolio health with an integrated Covenant & Tickler Management solution that keeps risk in check. Track covenant compliance and critical ticklers in real time with a structured review and approval workflow. Reduce surprises, improve visibility, and act early to safeguard returns.',
-    logo: '/images/logo-04.svg',
   },
   {
     icon: Workflow,
     title: 'Post-Disbursement Progress Monitoring',
     description:
       'Ensure ongoing control after or during funding with Post-Disbursement Progress Monitoring. Track milestones, conditions, and usage or milestones of funds through structured reviews and real-time updates. Detect issues early, maintain compliance, and protect portfolio performance throughout the loan lifecycle.',
-    logo: '/images/logo-04.svg',
   },
   {
     icon: Bot,
     title: 'Rule Based Dynamic Workflow Engine',
     description:
       'Automate complex processes with a Rule-Based Dynamic Workflow Engine that adapts in real time. Configure rules to route tasks, trigger approvals, and enforce policy based on data and events. Cut turnaround time, reduce manual errors, and keep operations consistently audit-ready.',
-    logo: '/images/logo-04.svg',
   },
   {
     icon: FileSearch,
     title: 'AI-Enabled Document Scrubbing',
     description:
       'Automatically extract, validate, and flag risks or inconsistencies across large document sets. Reduce manual effort, improve accuracy, and make faster, more confident decisions.',
-    logo: '/images/logo-04.svg',
   },
   {
     icon: ClipboardCheck,
     title: 'Intelligent Document Validation Engine',
     description:
       'Detect and prevent fraud with AI-powered document checks. Automatically identify forged, altered, or inconsistent documents using intelligent pattern analysis. Reduce risk, speed up reviews, and strengthen trust across every transaction.',
-    logo: '/images/logo-04.svg',
   },
   {
     icon: Layers,
     title: 'Advanced Credit Memo Builder',
     description:
       'Automate credit analysis with customizable credit memo templates, ratio calculations, AI summaries, and institution-specific narratives.',
-    logo: '/images/logo-04.svg',
   },
   {
     icon: Sparkle,
     title: 'Configurable and Advanced Spreading Capabilities',
     description:
       'Streamline analysis with Configurable and Advanced Spreading Capabilities in the platform. Easily adapt templates and rules to spread financials across industries, entities, and deal types. Improve accuracy, consistency, and speed from data capture to credit decision.',
-    logo: '/images/logo-04.svg',
   },
   {
     icon: FileSearch,
     title: 'Advanced Lending Analytics & Insights',
     description:
       'Get real-time dashboards for portfolio performance, borrower behaviour, risk scoring, and trend predictions.',
-    logo: '/images/logo-04.svg',
   },
 ]
 
 export default function SolutionsSection() {
+  const images = ['/images/slideshow1.png', '/images/slideshow2.png', '/images/slideshow3.png']
+  const slides = solutions.map((solution, index) => ({
+    ...solution,
+    image: images[index % images.length],
+  }))
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % slides.length)
+    }, 6500)
+
+    return () => window.clearInterval(interval)
+  }, [slides.length])
+
+  const goToSlide = (index: number) => {
+    setActiveIndex(index)
+  }
+
   return (
     <section className="section-padding bg-dark-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-900 to-dark-900" />
@@ -75,32 +89,57 @@ export default function SolutionsSection() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-dark-700/70 bg-dark-900/40 divide-y divide-dark-700/70">
-          {solutions.map((solution) => (
-            <div
-              key={solution.title}
-              className="grid gap-6 px-6 py-6 md:grid-cols-[minmax(0,1fr)_180px] md:items-center"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-accent-lime">
-                  <div className="w-11 h-11 rounded-xl bg-accent-lime/10 border border-accent-lime/40 flex items-center justify-center">
-                    <solution.icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white">{solution.title}</h3>
-                </div>
-                <p className="text-gray-300 leading-relaxed">{solution.description}</p>
-              </div>
-              <div className="flex md:justify-end">
+        <div className="relative overflow-hidden rounded-3xl border border-dark-700/70 bg-dark-900/40">
+          <div className="relative h-[420px] sm:h-[460px] lg:h-[520px]">
+            {slides.map((slide, index) => (
+              <div
+                key={slide.title}
+                className={`absolute inset-0 transition-opacity duration-700 ${
+                  index === activeIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}
+              >
                 <Image
-                  src={solution.logo}
-                  alt={`${solution.title} logo`}
-                  width={160}
-                  height={48}
-                  className="h-12 w-auto object-contain opacity-80"
+                  src={slide.image}
+                  alt={`${slide.title} background`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 960px"
+                  className="object-cover"
+                  priority={index === 0}
                 />
+                <div className="absolute inset-y-0 left-0 w-3/4 bg-gradient-to-r from-dark-900/90 via-dark-900/70 to-transparent sm:w-2/3 lg:w-1/2" />
+                <div className="relative z-10 flex h-full items-end md:items-center">
+                  <div className="max-w-2xl space-y-4 px-6 py-8 sm:px-10">
+                    <div className="flex items-center gap-3 text-accent-lime">
+                      <div className="w-11 h-11 rounded-xl bg-accent-lime/10 border border-accent-lime/40 flex items-center justify-center">
+                        <slide.icon className="w-6 h-6" />
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-semibold text-white">{slide.title}</h3>
+                    </div>
+                    <p className="text-gray-100 leading-relaxed">{slide.description}</p>
+                  </div>
+                </div>
               </div>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-4 border-t border-dark-700/70 px-6 py-4 sm:px-10">
+            <div className="flex items-center gap-2">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.title}
+                  type="button"
+                  aria-label={`Go to ${slide.title}`}
+                  onClick={() => goToSlide(index)}
+                  className={`h-2.5 w-2.5 rounded-full transition ${
+                    index === activeIndex ? 'bg-accent-lime' : 'bg-dark-600 hover:bg-dark-500'
+                  }`}
+                />
+              ))}
             </div>
-          ))}
+            <div className="text-xs uppercase tracking-[0.3em] text-gray-400">
+              {activeIndex + 1} / {slides.length}
+            </div>
+          </div>
         </div>
       </div>
     </section>
