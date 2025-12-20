@@ -75,7 +75,7 @@ export default function Hero() {
               
               {/* Hero Image */}
               <Image
-                src="/images/Loans-Screen.webp"
+                src="/images/Loans-Screen.png"
                 alt="Loans platform dashboard screen"
                 width={1536}
                 height={1005}
