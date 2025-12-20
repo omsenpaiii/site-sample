@@ -111,6 +111,51 @@ export default function CareersSection() {
             </p>
           </div>
         </div>
+
+        <div className="mt-12 space-y-10">
+          <div className="rounded-2xl bg-white border border-gray-200 shadow-xl px-7 py-10 md:px-10 md:py-12">
+            <div className="flex items-center gap-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#f7931e]">Value Drivers</p>
+              <div className="h-px flex-1 bg-gray-200" />
+            </div>
+
+            <div className="mt-7 grid gap-10 md:grid-cols-2 xl:grid-cols-4">
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl leading-tight font-medium text-[#f7931e]">Make a Difference</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  The work we do has real-world impact. By improving the efficiency and reliability of the financial
+                  institutions, we are helping to support business, individuals in need and get them access to the
+                  financial aid at the earliest.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl leading-tight font-medium text-[#f7931e]">Innovative Environment</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  We bring a start-up mindset to everything we do. This means constant innovation, fresh ideas, and a
+                  fast-paced, dynamic workplace where your contributions matter.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl leading-tight font-medium text-[#f7931e]">Supportive Team</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  At STGi, we celebrate wins together, support each other through challenges, and value every team
+                  member's unique skills and perspective. We're committed to creating an environment where everyone can
+                  thrive.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl leading-tight font-medium text-[#f7931e]">Thriving Together</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  We work hard, but we also know how to have fun. Whether it's team celebrations or just taking time to
+                  connect, we're proud of a culture that supports both personal and professional fulfillment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {isApplyOpen ? (
