@@ -100,45 +100,45 @@ export default function TechStackSection() {
                     isActive ? 'flex-[3]' : 'flex-[0.7]'
                   } ${index === services.length - 1 ? '' : 'border-r border-dark-700/70'}`}
                 >
-                  <div className="absolute inset-y-0 left-0 z-10 flex w-16 flex-col items-center justify-between border-r border-white/10 bg-dark-900/70 py-6">
+                  <div className="absolute inset-y-0 left-0 z-10 flex w-16 flex-col items-center justify-between border-r border-white/10 bg-dark-900/70 py-4">
                     <Image
                       src={item.icon}
                       alt={`${item.title} icon`}
                       width={40}
                       height={40}
-                      className="h-8 w-auto"
+                      className="h-6 w-auto"
                     />
                     <span
                       style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-                      className="text-xs uppercase tracking-[0.3em] text-gray-200"
+                      className="text-[10px] uppercase tracking-[0.3em] text-gray-200"
                     >
                       {item.title}
                     </span>
                   </div>
 
                   <div
-                    className={`relative flex w-full min-w-0 flex-col gap-2 px-4 py-3 pl-20 transition-opacity duration-300 lg:flex-row lg:items-center lg:justify-between ${
+                    className={`relative flex w-full min-w-0 flex-col gap-1.5 px-3 py-2 pl-20 transition-opacity duration-300 lg:flex-row lg:items-center lg:justify-between ${
                       isActive ? 'opacity-100' : 'lg:opacity-0'
                     }`}
                   >
-                    <div className="min-w-0 space-y-1.5">
-                      <div className="space-y-0.5">
-                        <p className="text-[10px] uppercase tracking-[0.3em] text-accent-lime">{item.title}</p>
-                        <h3 className="text-lg md:text-xl font-semibold text-white leading-tight">{item.tagline}</h3>
+                    <div className="min-w-0 space-y-1">
+                      <div className="space-y-0">
+                        <p className="text-[9px] uppercase tracking-[0.3em] text-accent-lime leading-tight">{item.title}</p>
+                        <h3 className="text-base md:text-lg font-semibold text-white leading-tight">{item.tagline}</h3>
                       </div>
-                      <p className="text-xs text-gray-300 leading-snug">{item.description}</p>
-                      <ul className="grid gap-1 text-[11px] text-gray-200 sm:grid-cols-2 leading-tight">
+                      <p className="text-[11px] text-gray-300 leading-tight">{item.description}</p>
+                      <ul className="grid gap-0.5 text-[10px] text-gray-200 sm:grid-cols-2 leading-tight">
                         {item.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-start gap-1.5">
-                            <span className="mt-0.5 h-0.5 w-0.5 shrink-0 rounded-full bg-accent-lime" />
+                          <li key={bullet} className="flex items-start gap-1">
+                            <span className="mt-0.5 h-[2px] w-[2px] shrink-0 rounded-full bg-accent-lime" />
                             <span>{bullet}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div className="hidden shrink-0 lg:flex">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2">
-                        <Image src={item.icon} alt={`${item.title} logo`} width={64} height={64} className="h-10 w-auto" />
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-white/10 bg-white/5 p-1.5">
+                        <Image src={item.icon} alt={`${item.title} logo`} width={48} height={48} className="h-8 w-auto" />
                       </div>
                     </div>
                   </div>
