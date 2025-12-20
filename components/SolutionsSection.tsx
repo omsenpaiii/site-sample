@@ -1,6 +1,6 @@
 'use client'
 
-import { Bot, ClipboardCheck, FileSearch, Layers, Sparkle, Workflow } from 'lucide-react'
+import { Bot, ChevronLeft, ChevronRight, ClipboardCheck, FileSearch, Layers, Sparkle, Workflow } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
@@ -75,6 +75,14 @@ export default function SolutionsSection() {
     setActiveIndex(index)
   }
 
+  const goToNextSlide = () => {
+    setActiveIndex((prev) => (prev + 1) % slides.length)
+  }
+
+  const goToPrevSlide = () => {
+    setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length)
+  }
+
   return (
     <section className="section-padding bg-dark-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-900 to-dark-900" />
@@ -108,7 +116,7 @@ export default function SolutionsSection() {
                 />
                 <div className="absolute inset-y-0 left-0 w-3/4 bg-gradient-to-r from-dark-900/90 via-dark-900/70 to-transparent sm:w-2/3 lg:w-1/2" />
                 <div className="relative z-10 flex h-full items-end md:items-center">
-                  <div className="max-w-2xl space-y-4 px-6 py-8 sm:px-10">
+                  <div className="max-w-2xl space-y-4 px-6 py-8 sm:px-10 sm:pl-14 md:pl-16">
                     <div className="flex items-center gap-3 text-accent-lime">
                       <div className="w-11 h-11 rounded-xl bg-accent-lime/10 border border-accent-lime/40 flex items-center justify-center">
                         <slide.icon className="w-6 h-6" />
@@ -121,6 +129,23 @@ export default function SolutionsSection() {
               </div>
             ))}
           </div>
+
+          <button
+            type="button"
+            aria-label="Previous slide"
+            onClick={goToPrevSlide}
+            className="absolute left-2 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-dark-900/70 text-white transition hover:bg-dark-800/90 sm:left-3 md:left-4"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next slide"
+            onClick={goToNextSlide}
+            className="absolute right-2 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-dark-900/70 text-white transition hover:bg-dark-800/90 sm:right-3 md:right-4"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
 
           <div className="flex flex-wrap items-center justify-between gap-4 border-t border-dark-700/70 px-6 py-4 sm:px-10">
             <div className="flex items-center gap-2">
