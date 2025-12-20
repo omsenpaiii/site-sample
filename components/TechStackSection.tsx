@@ -109,7 +109,7 @@ export default function TechStackSection() {
                       className="h-8 w-auto"
                     />
                     <span
-                      style={{ writingMode: 'vertical-rl' }}
+                      style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
                       className="text-xs uppercase tracking-[0.3em] text-gray-200"
                     >
                       {item.title}
