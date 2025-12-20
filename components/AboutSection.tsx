@@ -25,8 +25,8 @@ export default function AboutSection() {
               <p className="text-sm uppercase tracking-[0.2em]">Built on a Dynamic Culture and a Connection of Trust</p>
             </div>
             <p className="text-gray-200 leading-relaxed">
-              STGI's team is built on a strong fibre of trust where 90% of the team is built on connections and referrals. With
-              a mission to grow ourselves and our partners – we provide hypercare.
+              STGI's team is built on a strong fibre of trust where 90% of the team is built on connections and referrals. 
+              With a mission to grow ourselves, our employees, partners & clients – we provide hypercare. 
             </p>
           </div>
         </div>
