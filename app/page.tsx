@@ -4,7 +4,6 @@ import WhySection from '@/components/WhySection'
 import TransformationSection from '@/components/TransformationSection'
 import SolutionsSection from '@/components/SolutionsSection'
 import TechStackSection from '@/components/TechStackSection'
-import SecuritySection from '@/components/SecuritySection'
 import DemoSection from '@/components/DemoSection'
 import AboutSection from '@/components/AboutSection'
 import CareersSection from '@/components/CareersSection'
@@ -20,7 +19,6 @@ export default function Home() {
       <TransformationSection />
       <SolutionsSection />
       <TechStackSection />
-      <SecuritySection />
       <DemoSection />
       <AboutSection />
       <CareersSection />

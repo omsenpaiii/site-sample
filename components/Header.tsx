@@ -12,7 +12,6 @@ export default function Header() {
     { name: 'Home', href: '#home' },
     { name: 'Solutions', href: '#solutions' },
     { name: 'Technology', href: '#tech' },
-    { name: 'Security', href: '#security' },
     { name: 'About Us', href: '#about' },
     { name: 'Careers', href: '#careers' },
     { name: 'Contact', href: '#contact' },
@@ -60,12 +59,12 @@ export default function Header() {
             onClick={() => handleNavClick('#home')}
             className="flex items-center space-x-3 group cursor-pointer mt-2"
           >
-            <div className="relative w-36 h-20">
+            <div className="relative w-44 h-24">
               <Image
                 src="/assets/logos/logo3.png"
                 alt="STGI Logo"
-                width={140}
-                height={80}
+                width={176}
+                height={96}
                 className="object-contain"
               />
             </div>
@@ -76,7 +75,7 @@ export default function Header() {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-sm uppercase tracking-wide text-gray-300 hover:text-accent-lime"
+                className="text-base uppercase tracking-wide text-gray-300 hover:text-accent-lime"
               >
                 {item.name}
               </button>

@@ -6,7 +6,6 @@ import Image from 'next/image'
 const companyLinks = [
   { name: 'Solutions', href: '#solutions' },
   { name: 'Technology', href: '#tech' },
-  { name: 'Security', href: '#security' },
 ]
 
 const connectLinks = [
