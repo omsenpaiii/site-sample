@@ -3,7 +3,6 @@
 import { Bot, ChevronLeft, ChevronRight, ClipboardCheck, FileSearch, Layers, Sparkle, Workflow } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import MacBookScene from './MacBookScene'
 
 const solutions = [
   {
@@ -65,7 +64,16 @@ const solutions = [
 ]
 
 export default function SolutionsSection() {
-  const images = ['/images/slideshow1.png', '/images/slideshow2.png', '/images/slideshow3.png', '/images/slideshow4.png', '/images/slideshow5.png', '/images/slideshow6.png', '/images/slideshow7.png', '/images/slideshow8.png']
+  const images = [
+    '/images/Lslideshow1.png',
+    '/images/Lslideshow2.png',
+    '/images/Lslideshow3.png',
+    '/images/Lslideshow4.png',
+    '/images/Lslideshow5.png',
+    '/images/Lslideshow6.png',
+    '/images/Lslideshow7.png',
+    '/images/Lslideshow8.png',
+  ]
   const slides = solutions.map((solution, index) => ({
     ...solution,
     image: images[index % images.length],
@@ -73,6 +81,7 @@ export default function SolutionsSection() {
 
   const [activeIndex, setActiveIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
+  const [parallaxOffset, setParallaxOffset] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     setMounted(true)
@@ -93,6 +102,17 @@ export default function SolutionsSection() {
 
   const goToPrevSlide = () => {
     setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length)
+  }
+
+  const handleParallaxMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect()
+    const x = (event.clientX - rect.left) / rect.width - 0.5
+    const y = (event.clientY - rect.top) / rect.height - 0.5
+    setParallaxOffset({ x, y })
+  }
+
+  const handleParallaxLeave = () => {
+    setParallaxOffset({ x: 0, y: 0 })
   }
 
   return (
@@ -148,11 +168,22 @@ export default function SolutionsSection() {
                         className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-accent-lime/30 blur-2xl opacity-70"
                         aria-hidden="true"
                       />
-                      <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-dark-900/40 shadow-2xl shadow-black/40">
+                      <div
+                        className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-dark-900/40 shadow-2xl shadow-black/40"
+                        onMouseMove={handleParallaxMove}
+                        onMouseLeave={handleParallaxLeave}
+                      >
                         {index === activeIndex ? (
-                          <MacBookScene
-                            triggerId="solutions-section"
-                            screenImage={slide.image}
+                          <Image
+                            src={slide.image}
+                            alt={`${slide.title} laptop`}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 520px"
+                            className="object-contain transition-transform duration-200"
+                            style={{
+                              transform: `translate3d(${parallaxOffset.x * 12}px, ${parallaxOffset.y * 12}px, 0) scale(1.02)`,
+                            }}
+                            priority={index === 0}
                           />
                         ) : null}
                       </div>

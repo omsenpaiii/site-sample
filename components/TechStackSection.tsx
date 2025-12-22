@@ -78,10 +78,10 @@ const services = [
 
 export default function TechStackSection() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const providerLogos = ['/images/aws.png', '/images/azure.png', '/images/gcp.png', '/images/oracle.png']
+  const providerLogos = ['/images/aws2.png', '/images/azure.png', '/images/gcp.png', '/images/oracle.png']
   const dataLogos = ['/images/Datadog.png', '/images/dataRobot.png', '/images/posgresql.webp', '/images/redis.png']
   const rpaLogos = ['/images/UiPath.png', '/images/automationanywhere.png', '/images/blueprism.png']
-  const integrationsLogos = ['/images/postman.png', '/images/DocuSign.svg', '/images/fico.webp', '/images/Experian.png']
+  const integrationsLogos = ['/images/postman.png', '/images/DocuSign.svg', '/images/fico.png', '/images/Experian.png']
   const supportLogos = ['/images/argocd.png', '/images/splunk.png', '/images/sentry.webp', '/images/temporal.svg']
 
   return (
@@ -152,7 +152,7 @@ export default function TechStackSection() {
                             </ul>
                           </div>
                           <div className="flex items-center justify-center">
-                            <div className="grid grid-cols-2 gap-4 rounded-2xl bg-white/90 px-6 py-5">
+                            <div className="grid grid-cols-2 gap-4 rounded-2xl bg-white px-6 py-5">
                               {(index === 0 ? providerLogos : index === 1 ? dataLogos : index === 2 ? rpaLogos : index === 3 ? integrationsLogos : index === 4 ? supportLogos : [item.icon]).map((logo) => (
                                 <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-xl bg-transparent shrink-0">
                                   <Image src={logo} alt="Cloud provider logo" width={80} height={80} className="w-20 h-20 object-contain" />
