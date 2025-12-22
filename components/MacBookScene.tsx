@@ -1,73 +1,123 @@
 'use client'
 
-import { Canvas } from '@react-three/fiber'
-import { ContactShadows, useGLTF } from '@react-three/drei'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { ContactShadows, useGLTF, useTexture } from '@react-three/drei'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Suspense, useEffect, useRef } from 'react'
+import { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 
 gsap.registerPlugin(ScrollTrigger)
 
 type MacbookGLTF = {
   nodes: {
-    Top: THREE.Mesh
-    Bottom: THREE.Mesh
+    Top: THREE.Object3D
+    Bottom: THREE.Object3D
   }
 }
 
-function MacBookModel({ triggerId }: { triggerId?: string }) {
+type ScreenConfig = {
+  size: [number, number]
+  position: [number, number, number]
+  rotation: [number, number, number]
+}
+
+function MacBookModel({ triggerId, screenImage }: { triggerId?: string; screenImage?: string }) {
   const topModel = useGLTF('/assets/Macbook_Top.glb') as unknown as MacbookGLTF
   const bottomModel = useGLTF('/assets/Macbook_Bottom.glb') as unknown as MacbookGLTF
   const groupRef = useRef<THREE.Group>(null)
-  const topRef = useRef<THREE.Mesh>(null)
-  const bottomRef = useRef<THREE.Mesh>(null)
+  const topRef = useRef<THREE.Group>(null)
+  const bottomRef = useRef<THREE.Group>(null)
   const moveTween = useRef<gsap.core.Tween>()
+  const baseRotation = useRef({ x: 0.15, y: Math.PI, z: 0 })
+  const mouseOffset = useRef({ x: 0, y: 0 })
+  const [screenConfig, setScreenConfig] = useState<ScreenConfig | null>(null)
+
+  const screenTexture = useTexture(screenImage ?? '/images/slideshow1.png')
+  useEffect(() => {
+    screenTexture.colorSpace = THREE.SRGBColorSpace
+    screenTexture.flipY = false
+    screenTexture.needsUpdate = true
+  }, [screenTexture])
+
+  useLayoutEffect(() => {
+    if (!topRef.current) return
+
+    const topObject = topRef.current
+    topObject.updateWorldMatrix(true, true)
+
+    const box = new THREE.Box3().setFromObject(topObject)
+    const size = new THREE.Vector3()
+    const center = new THREE.Vector3()
+    box.getSize(size)
+    box.getCenter(center)
+    topObject.worldToLocal(center)
+
+    const dims = [size.x, size.y, size.z]
+    const minIndex = dims.indexOf(Math.min(...dims))
+    const width = minIndex === 0 ? size.y : size.x
+    const height = minIndex === 2 ? size.y : size.z
+    const rotation: [number, number, number] =
+      minIndex === 0 ? [0, Math.PI / 2, 0] : minIndex === 1 ? [-Math.PI / 2, 0, 0] : [0, 0, 0]
+
+    const position = center.clone()
+    const offset = dims[minIndex] / 2 + 0.008
+    if (minIndex === 0) position.x += offset
+    if (minIndex === 1) position.y += offset
+    if (minIndex === 2) position.z += offset
+
+    setScreenConfig({
+      size: [width * 0.78, height * 0.52],
+      position: [position.x, position.y, position.z],
+      rotation,
+    })
+  }, [topModel])
 
   useEffect(() => {
     if (!groupRef.current || !topRef.current || !bottomRef.current) return
 
-    const triggerEl = (triggerId ? document.getElementById(triggerId) : null) ?? groupRef.current
+    const triggerEl = (triggerId ? document.getElementById(triggerId) : null) ?? document.body
+    const openAngle = 1.57
+    const closedAngle = 0.35
+    const base = baseRotation.current
+
+    if (topRef.current) {
+      topRef.current.rotation.x = openAngle
+    }
 
     const ctx = gsap.context(() => {
-      const tl1 = gsap.timeline({
+      gsap.to(base, {
+        x: 0.05,
+        y: Math.PI,
+        ease: 'none',
         scrollTrigger: {
           trigger: triggerEl,
           start: 'top bottom',
-          end: 'top center',
-          scrub: true,
-        },
-      })
-
-      tl1
-        .to(groupRef.current!.rotation, { x: 0.0, ease: 'power2.inOut' })
-        .to(groupRef.current!.rotation, { y: Math.PI - 0.4, ease: 'power2.inOut' }, '>')
-        .to(topRef.current!.rotation, { x: Math.PI / 2 + 0.1, ease: 'power2.inOut' }, '<')
-        .to(groupRef.current!.position, { x: 1.0, ease: 'power2.inOut' }, '<')
-        .to(groupRef.current!.scale, { x: 0.82, y: 0.82, z: 0.82, ease: 'power2.inOut' }, '<')
-
-      const tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: triggerEl,
-          start: 'center center',
           end: 'bottom top',
           scrub: true,
         },
       })
 
-      tl2.to(groupRef.current!.rotation, { y: Math.PI + 0.4, ease: 'power2.inOut' }).to(
-        groupRef.current!.position,
-        { x: -1.0, ease: 'power2.inOut' },
-        '<',
-      )
+      if (topRef.current) {
+        gsap.to(topRef.current.rotation, {
+          x: closedAngle,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: triggerEl,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+        })
+      }
 
       const handleMove = (e: MouseEvent) => {
         const x = (e.clientX / window.innerWidth) * 2 - 1
         const y = (e.clientY / window.innerHeight) * 2 - 1
         moveTween.current?.kill()
-        moveTween.current = gsap.to(groupRef.current!.rotation, {
-          y: Math.PI + x * 0.25,
-          x: Math.PI / 2 + y * 0.12,
+        moveTween.current = gsap.to(mouseOffset.current, {
+          x: x * 0.18,
+          y: y * 0.1,
           duration: 0.4,
           ease: 'power2.out',
         })
@@ -85,14 +135,27 @@ function MacBookModel({ triggerId }: { triggerId?: string }) {
     return () => ctx.revert()
   }, [triggerId])
 
+  useFrame(() => {
+    if (!groupRef.current) return
+    groupRef.current.rotation.x = baseRotation.current.x + mouseOffset.current.y
+    groupRef.current.rotation.y = baseRotation.current.y + mouseOffset.current.x
+    groupRef.current.rotation.z = baseRotation.current.z
+  })
+
   return (
-    <group ref={groupRef} position={[0, -0.7, 0]} rotation={[Math.PI / 2, 0, 0]} scale={1.2}>
-      <mesh ref={topRef}>
+    <group ref={groupRef} position={[0, -0.85, -0.35]} rotation={[0.12, Math.PI, 0]} scale={1.1}>
+      <group ref={topRef}>
         <primitive object={topModel.nodes.Top} />
-      </mesh>
-      <mesh ref={bottomRef}>
+        {screenConfig ? (
+          <mesh position={screenConfig.position} rotation={screenConfig.rotation}>
+            <planeGeometry args={screenConfig.size} />
+            <meshBasicMaterial map={screenTexture} toneMapped={false} side={THREE.DoubleSide} />
+          </mesh>
+        ) : null}
+      </group>
+      <group ref={bottomRef}>
         <primitive object={bottomModel.nodes.Bottom} />
-      </mesh>
+      </group>
     </group>
   )
 }
@@ -100,13 +163,14 @@ function MacBookModel({ triggerId }: { triggerId?: string }) {
 useGLTF.preload('/assets/Macbook_Top.glb')
 useGLTF.preload('/assets/Macbook_Bottom.glb')
 
-export function MacBookScene({ triggerId }: { triggerId?: string }) {
+export function MacBookScene({ triggerId, screenImage }: { triggerId?: string; screenImage?: string }) {
   return (
     <div className="relative h-full w-full">
       <Suspense fallback={<div className="h-full w-full bg-dark-900/40" />}>
-        <Canvas camera={{ position: [0, 0.4, 4.8], fov: 55 }} className="rounded-2xl">
+        <Canvas camera={{ position: [0, 0.1, 4.8], fov: 55 }} className="rounded-2xl">
+          <ambientLight intensity={0.6} />
           <directionalLight intensity={5} position={[1, 3, 3]} />
-          <MacBookModel triggerId={triggerId} />
+          <MacBookModel triggerId={triggerId} screenImage={screenImage} />
           <ContactShadows opacity={0.28} position={[0, -0.9, 0]} blur={1.5} />
         </Canvas>
       </Suspense>

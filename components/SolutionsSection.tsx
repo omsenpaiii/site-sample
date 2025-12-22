@@ -129,6 +129,7 @@ export default function SolutionsSection() {
                   className="object-cover"
                   priority={index === 0}
                 />
+                <div className="absolute inset-0 bg-gradient-to-br from-dark-900/90 via-dark-800/80 to-dark-700/70" />
                 <div className="pointer-events-none absolute inset-0 slideshow-texture" aria-hidden="true" />
                 <div className="absolute inset-y-0 left-0 w-3/4 bg-gradient-to-r from-dark-900/90 via-dark-900/70 to-transparent sm:w-2/3 lg:w-1/2" />
                 <div className="relative z-10 flex h-full flex-col justify-end gap-6 px-6 py-8 sm:px-10 sm:pl-14 md:flex-row md:items-center md:justify-between md:gap-10 md:pl-16">
@@ -148,7 +149,9 @@ export default function SolutionsSection() {
                         aria-hidden="true"
                       />
                       <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-dark-900/40 shadow-2xl shadow-black/40">
-                        {index === activeIndex ? <MacBookScene triggerId={`solution-slide-${index}`} /> : null}
+                        {index === activeIndex ? (
+                          <MacBookScene triggerId={`solution-slide-${index}`} screenImage={slide.image} />
+                        ) : null}
                       </div>
                     </div>
                   </div>
