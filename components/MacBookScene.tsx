@@ -22,6 +22,7 @@ function MacBookModel({ triggerId }: { triggerId?: string }) {
   const groupRef = useRef<THREE.Group>(null)
   const topRef = useRef<THREE.Mesh>(null)
   const bottomRef = useRef<THREE.Mesh>(null)
+  const moveTween = useRef<gsap.core.Tween>()
 
   useEffect(() => {
     if (!groupRef.current || !topRef.current || !bottomRef.current) return
@@ -59,6 +60,26 @@ function MacBookModel({ triggerId }: { triggerId?: string }) {
         { x: -1.0, ease: 'power2.inOut' },
         '<',
       )
+
+      const handleMove = (e: MouseEvent) => {
+        const x = (e.clientX / window.innerWidth) * 2 - 1
+        const y = (e.clientY / window.innerHeight) * 2 - 1
+        moveTween.current?.kill()
+        moveTween.current = gsap.to(groupRef.current!.rotation, {
+          y: Math.PI + x * 0.25,
+          x: Math.PI / 2 + y * 0.12,
+          duration: 0.4,
+          ease: 'power2.out',
+        })
+      }
+
+      window.addEventListener('mousemove', handleMove)
+      ScrollTrigger.refresh()
+
+      return () => {
+        window.removeEventListener('mousemove', handleMove)
+        moveTween.current?.kill()
+      }
     })
 
     return () => ctx.revert()

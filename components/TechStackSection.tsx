@@ -78,6 +78,7 @@ const services = [
 
 export default function TechStackSection() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const providerLogos = ['/images/aws.png', '/images/azure.png', '/images/gcp.png', '/images/oracle.png']
 
   return (
     <section id="tech" className="section-padding bg-dark-800/60 border-y border-dark-700">
@@ -107,13 +108,13 @@ export default function TechStackSection() {
                       }`}
                     >
                       <div className="flex items-center gap-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 shrink-0">
                           <Image
                             src={item.icon}
                             alt={`${item.title} icon`}
                             width={48}
                             height={48}
-                            className="h-9 w-auto max-w-[38px]"
+                            className="w-9 h-9 object-contain"
                           />
                         </div>
                         <div className="min-w-0 space-y-1">
@@ -147,14 +148,12 @@ export default function TechStackSection() {
                             </ul>
                           </div>
                           <div className="flex items-center justify-center">
-                            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white/5">
-                              <Image
-                                src={item.icon}
-                                alt={`${item.title} logo`}
-                                width={64}
-                                height={64}
-                                className="h-12 w-auto max-w-[56px]"
-                              />
+                            <div className="grid grid-cols-2 gap-4 rounded-2xl bg-white/5 px-6 py-5">
+                              {(index === 0 ? providerLogos : [item.icon]).map((logo) => (
+                                <div key={logo} className="flex h-16 w-16 items-center justify-center rounded-xl bg-transparent shrink-0">
+                                  <Image src={logo} alt="Cloud provider logo" width={64} height={64} className="w-14 h-14 object-contain" />
+                                </div>
+                              ))}
                             </div>
                           </div>
                         </div>
@@ -177,13 +176,13 @@ export default function TechStackSection() {
                     onClick={() => setActiveIndex(index)}
                     className="flex w-full items-center gap-4 px-6 py-5 text-left"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 shrink-0">
                       <Image
                         src={item.icon}
                         alt={`${item.title} icon`}
                         width={40}
                         height={40}
-                        className="h-9 w-auto max-w-[34px]"
+                        className="w-9 h-9 object-contain"
                       />
                     </div>
                     <div>
@@ -202,6 +201,15 @@ export default function TechStackSection() {
                           </li>
                         ))}
                       </ul>
+                      {index === 0 ? (
+                        <div className="grid grid-cols-2 gap-4 pt-2">
+                          {providerLogos.map((logo) => (
+                            <div key={logo} className="flex h-16 w-16 items-center justify-center rounded-lg bg-transparent shrink-0">
+                              <Image src={logo} alt="Cloud provider logo" width={64} height={64} className="w-12 h-12 object-contain" />
+                            </div>
+                          ))}
+                        </div>
+                      ) : null}
                     </div>
                   ) : null}
                 </div>

@@ -148,7 +148,7 @@ export default function SolutionsSection() {
                         aria-hidden="true"
                       />
                       <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-dark-900/40 shadow-2xl shadow-black/40">
-                        <MacBookScene triggerId={`solution-slide-${index}`} />
+                        {index === activeIndex ? <MacBookScene triggerId={`solution-slide-${index}`} /> : null}
                       </div>
                     </div>
                   </div>
