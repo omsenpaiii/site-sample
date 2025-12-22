@@ -11,8 +11,8 @@ export default function CursorTrail() {
       const triangle = document.createElement('div')
       triangle.className = 'cursor-trail-triangle'
       // Offset to position at the back/end of the cursor instead of the tip
-      triangle.style.left = `${x + 8}px`
-      triangle.style.top = `${y + 16}px`
+      triangle.style.left = `${x + 12}px`
+      triangle.style.top = `${y + 20}px`
       
       document.body.appendChild(triangle)
       trails.push(triangle)

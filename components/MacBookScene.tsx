@@ -71,19 +71,21 @@ function MacBookModel({
 
     const dims = [size.x, size.y, size.z]
     const minIndex = dims.indexOf(Math.min(...dims))
-    const width = minIndex === 0 ? size.y : size.x
-    const height = minIndex === 2 ? size.y : size.z
+    const maxIndex = dims.indexOf(Math.max(...dims))
+    const midIndex = [0, 1, 2].filter((idx) => idx !== minIndex && idx !== maxIndex)[0]
+    const width = dims[maxIndex]
+    const height = dims[midIndex]
     const rotation: [number, number, number] =
       minIndex === 0 ? [0, Math.PI / 2, 0] : minIndex === 1 ? [-Math.PI / 2, 0, 0] : [0, 0, 0]
 
     const position = center.clone()
-    const offset = dims[minIndex] / 2 + 0.008
+    const offset = dims[minIndex] / 2 + 0.004
     if (minIndex === 0) position.x += offset
     if (minIndex === 1) position.y += offset
     if (minIndex === 2) position.z += offset
 
     setScreenConfig({
-      size: [width * 0.78, height * 0.52],
+      size: [width * 0.74, height * 0.46],
       position: [position.x, position.y, position.z],
       rotation,
     })
@@ -163,9 +165,15 @@ function MacBookModel({
       <group ref={topRef}>
         <primitive object={topModel.nodes.Top} />
         {screenConfig ? (
-          <mesh position={screenConfig.position} rotation={screenConfig.rotation}>
+          <mesh position={screenConfig.position} rotation={screenConfig.rotation} renderOrder={5}>
             <planeGeometry args={screenConfig.size} />
-            <meshBasicMaterial map={screenTexture} toneMapped={false} side={THREE.DoubleSide} />
+            <meshBasicMaterial
+              map={screenTexture}
+              toneMapped={false}
+              side={THREE.DoubleSide}
+              depthTest={false}
+              depthWrite={false}
+            />
           </mesh>
         ) : null}
         {screenConfig
@@ -181,8 +189,9 @@ function MacBookModel({
                   map={texture}
                   toneMapped={false}
                   transparent
-                  opacity={0.16}
+                  opacity={0.28}
                   depthWrite={false}
+                  depthTest={false}
                   side={THREE.DoubleSide}
                   polygonOffset
                   polygonOffsetFactor={-1 - idx}
