@@ -91,7 +91,7 @@ function MacBookModel({
     if (minIndex === 2) position.z += offset
 
     setScreenConfig({
-      size: [width * 0.8, height * 0.6],
+      size: [width * 0.8, height * 0.7],
       position: [position.x, position.y, position.z],
       rotation,
     })
@@ -100,13 +100,34 @@ function MacBookModel({
   useEffect(() => {
     if (!groupRef.current || !topRef.current || !bottomRef.current) return
 
-    const triggerEl = (triggerId ? document.getElementById(triggerId) : null) ?? document.body
-    const openAngle = 1.82
+    const triggerEl = triggerId ? document.getElementById(triggerId) : null
+    const openAngle = 1.75
     const closedAngle = 0.35
     const base = baseRotation.current
 
     if (topRef.current) {
       topRef.current.rotation.x = openAngle
+    }
+
+    const handleMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1
+      const y = (e.clientY / window.innerHeight) * 2 - 1
+      moveTween.current?.kill()
+      moveTween.current = gsap.to(mouseOffset.current, {
+        x: x * 0.18,
+        y: y * 0.1,
+        duration: 0.4,
+        ease: 'power2.out',
+      })
+    }
+
+    window.addEventListener('mousemove', handleMove)
+
+    if (!triggerEl) {
+      return () => {
+        window.removeEventListener('mousemove', handleMove)
+        moveTween.current?.kill()
+      }
     }
 
     const ctx = gsap.context(() => {
@@ -116,7 +137,7 @@ function MacBookModel({
         ease: 'none',
         scrollTrigger: {
           trigger: triggerEl,
-          start: 'top bottom',
+          start: 'top center',
           end: 'bottom top',
           scrub: true,
         },
@@ -128,35 +149,21 @@ function MacBookModel({
           ease: 'none',
           scrollTrigger: {
             trigger: triggerEl,
-            start: 'top bottom',
+            start: 'top center',
             end: 'bottom top',
             scrub: true,
           },
         })
       }
 
-      const handleMove = (e: MouseEvent) => {
-        const x = (e.clientX / window.innerWidth) * 2 - 1
-        const y = (e.clientY / window.innerHeight) * 2 - 1
-        moveTween.current?.kill()
-        moveTween.current = gsap.to(mouseOffset.current, {
-          x: x * 0.18,
-          y: y * 0.1,
-          duration: 0.4,
-          ease: 'power2.out',
-        })
-      }
-
-      window.addEventListener('mousemove', handleMove)
       ScrollTrigger.refresh()
-
-      return () => {
-        window.removeEventListener('mousemove', handleMove)
-        moveTween.current?.kill()
-      }
     })
 
-    return () => ctx.revert()
+    return () => {
+      window.removeEventListener('mousemove', handleMove)
+      moveTween.current?.kill()
+      ctx.revert()
+    }
   }, [triggerId])
 
   useFrame(() => {

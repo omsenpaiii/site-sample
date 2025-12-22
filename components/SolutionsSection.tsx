@@ -96,7 +96,7 @@ export default function SolutionsSection() {
   }
 
   return (
-    <section className="section-padding bg-dark-900 relative overflow-hidden">
+    <section id="solutions-section" className="section-padding bg-dark-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-900 to-dark-900" />
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
@@ -151,7 +151,7 @@ export default function SolutionsSection() {
                       <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-dark-900/40 shadow-2xl shadow-black/40">
                         {index === activeIndex ? (
                           <MacBookScene
-                            triggerId={`solution-slide-${index}`}
+                            triggerId="solutions-section"
                             screenImage={slide.image}
                           />
                         ) : null}
