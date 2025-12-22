@@ -150,7 +150,11 @@ export default function SolutionsSection() {
                       />
                       <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-dark-900/40 shadow-2xl shadow-black/40">
                         {index === activeIndex ? (
-                          <MacBookScene triggerId={`solution-slide-${index}`} screenImage={slide.image} />
+                          <MacBookScene
+                            triggerId={`solution-slide-${index}`}
+                            screenImage={slide.image}
+                            screenImages={images}
+                          />
                         ) : null}
                       </div>
                     </div>

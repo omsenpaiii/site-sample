@@ -152,7 +152,7 @@ export default function TechStackSection() {
                             </ul>
                           </div>
                           <div className="flex items-center justify-center">
-                            <div className="grid grid-cols-2 gap-4 rounded-2xl bg-white/5 px-6 py-5">
+                            <div className="grid grid-cols-2 gap-4 rounded-2xl bg-white/10 px-6 py-5">
                               {(index === 0 ? providerLogos : index === 1 ? dataLogos : index === 2 ? rpaLogos : index === 3 ? integrationsLogos : index === 4 ? supportLogos : [item.icon]).map((logo) => (
                                 <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-xl bg-transparent shrink-0">
                                   <Image src={logo} alt="Cloud provider logo" width={80} height={80} className="w-20 h-20 object-contain" />
@@ -206,7 +206,7 @@ export default function TechStackSection() {
                         ))}
                       </ul>
                       {index === 0 ? (
-                        <div className="grid grid-cols-2 gap-4 pt-2">
+                        <div className="grid grid-cols-2 gap-4 rounded-xl bg-white/10 p-3">
                           {providerLogos.map((logo) => (
                             <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-lg bg-transparent shrink-0">
                               <Image src={logo} alt="Cloud provider logo" width={80} height={80} className="w-16 h-16 object-contain" />
@@ -214,7 +214,7 @@ export default function TechStackSection() {
                           ))}
                         </div>
                       ) : index === 1 ? (
-                        <div className="grid grid-cols-2 gap-4 pt-2">
+                        <div className="grid grid-cols-2 gap-4 rounded-xl bg-white/10 p-3">
                           {dataLogos.map((logo) => (
                             <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-lg bg-transparent shrink-0">
                               <Image src={logo} alt="Data tool logo" width={80} height={80} className="w-16 h-16 object-contain" />
@@ -222,7 +222,7 @@ export default function TechStackSection() {
                           ))}
                         </div>
                       ) : index === 2 ? (
-                        <div className="grid grid-cols-2 gap-4 pt-2">
+                        <div className="grid grid-cols-2 gap-4 rounded-xl bg-white/10 p-3">
                           {rpaLogos.map((logo) => (
                             <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-lg bg-transparent shrink-0">
                               <Image src={logo} alt="RPA tool logo" width={80} height={80} className="w-16 h-16 object-contain" />
@@ -230,7 +230,7 @@ export default function TechStackSection() {
                           ))}
                         </div>
                       ) : index === 3 ? (
-                        <div className="grid grid-cols-2 gap-4 pt-2">
+                        <div className="grid grid-cols-2 gap-4 rounded-xl bg-white/10 p-3">
                           {integrationsLogos.map((logo) => (
                             <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-lg bg-transparent shrink-0">
                               <Image src={logo} alt="Integration tool logo" width={80} height={80} className="w-16 h-16 object-contain" />
@@ -238,7 +238,7 @@ export default function TechStackSection() {
                           ))}
                         </div>
                       ) : index === 4 ? (
-                        <div className="grid grid-cols-2 gap-4 pt-2">
+                        <div className="grid grid-cols-2 gap-4 rounded-xl bg-white/10 p-3">
                           {supportLogos.map((logo) => (
                             <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-lg bg-transparent shrink-0">
                               <Image src={logo} alt="Support tool logo" width={80} height={80} className="w-16 h-16 object-contain" />

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import "./css/style.css";
+import CursorTrail from '@/components/CursorTrail'
 
 export const metadata: Metadata = {
   title: 'STGI | Intelligent Lending Technology',
@@ -29,6 +30,7 @@ export default function RootLayout({
         <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
       </head>
       <body className="bg-dark-900 text-white antialiased">
+        <CursorTrail />
         {children}
       </body>
     </html>

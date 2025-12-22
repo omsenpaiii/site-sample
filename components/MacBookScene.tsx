@@ -22,7 +22,15 @@ type ScreenConfig = {
   rotation: [number, number, number]
 }
 
-function MacBookModel({ triggerId, screenImage }: { triggerId?: string; screenImage?: string }) {
+function MacBookModel({
+  triggerId,
+  screenImage,
+  screenImages,
+}: {
+  triggerId?: string
+  screenImage?: string
+  screenImages?: string[]
+}) {
   const topModel = useGLTF('/assets/Macbook_Top.glb') as unknown as MacbookGLTF
   const bottomModel = useGLTF('/assets/Macbook_Bottom.glb') as unknown as MacbookGLTF
   const groupRef = useRef<THREE.Group>(null)
@@ -34,11 +42,19 @@ function MacBookModel({ triggerId, screenImage }: { triggerId?: string; screenIm
   const [screenConfig, setScreenConfig] = useState<ScreenConfig | null>(null)
 
   const screenTexture = useTexture(screenImage ?? '/images/slideshow1.png')
+  const overlaySources = screenImages && screenImages.length ? screenImages : [screenImage ?? '/images/slideshow1.png']
+  const overlayTextures = useTexture(overlaySources) as THREE.Texture[]
+  const overlayList = screenImages && screenImages.length ? overlayTextures : []
   useEffect(() => {
     screenTexture.colorSpace = THREE.SRGBColorSpace
     screenTexture.flipY = false
     screenTexture.needsUpdate = true
-  }, [screenTexture])
+    overlayList.forEach((texture) => {
+      texture.colorSpace = THREE.SRGBColorSpace
+      texture.flipY = false
+      texture.needsUpdate = true
+    })
+  }, [screenTexture, overlayList])
 
   useLayoutEffect(() => {
     if (!topRef.current) return
@@ -77,7 +93,7 @@ function MacBookModel({ triggerId, screenImage }: { triggerId?: string; screenIm
     if (!groupRef.current || !topRef.current || !bottomRef.current) return
 
     const triggerEl = (triggerId ? document.getElementById(triggerId) : null) ?? document.body
-    const openAngle = 1.57
+    const openAngle = 1.82
     const closedAngle = 0.35
     const base = baseRotation.current
 
@@ -152,6 +168,29 @@ function MacBookModel({ triggerId, screenImage }: { triggerId?: string; screenIm
             <meshBasicMaterial map={screenTexture} toneMapped={false} side={THREE.DoubleSide} />
           </mesh>
         ) : null}
+        {screenConfig
+          ? overlayList.map((texture, idx) => (
+              <mesh
+                key={`overlay-${idx}`}
+                position={screenConfig.position}
+                rotation={screenConfig.rotation}
+                renderOrder={10 + idx}
+              >
+                <planeGeometry args={screenConfig.size} />
+                <meshBasicMaterial
+                  map={texture}
+                  toneMapped={false}
+                  transparent
+                  opacity={0.16}
+                  depthWrite={false}
+                  side={THREE.DoubleSide}
+                  polygonOffset
+                  polygonOffsetFactor={-1 - idx}
+                  polygonOffsetUnits={-1}
+                />
+              </mesh>
+            ))
+          : null}
       </group>
       <group ref={bottomRef}>
         <primitive object={bottomModel.nodes.Bottom} />
@@ -163,14 +202,22 @@ function MacBookModel({ triggerId, screenImage }: { triggerId?: string; screenIm
 useGLTF.preload('/assets/Macbook_Top.glb')
 useGLTF.preload('/assets/Macbook_Bottom.glb')
 
-export function MacBookScene({ triggerId, screenImage }: { triggerId?: string; screenImage?: string }) {
+export function MacBookScene({
+  triggerId,
+  screenImage,
+  screenImages,
+}: {
+  triggerId?: string
+  screenImage?: string
+  screenImages?: string[]
+}) {
   return (
     <div className="relative h-full w-full">
       <Suspense fallback={<div className="h-full w-full bg-dark-900/40" />}>
         <Canvas camera={{ position: [0, 0.1, 4.8], fov: 55 }} className="rounded-2xl">
           <ambientLight intensity={0.6} />
           <directionalLight intensity={5} position={[1, 3, 3]} />
-          <MacBookModel triggerId={triggerId} screenImage={screenImage} />
+          <MacBookModel triggerId={triggerId} screenImage={screenImage} screenImages={screenImages} />
           <ContactShadows opacity={0.28} position={[0, -0.9, 0]} blur={1.5} />
         </Canvas>
       </Suspense>
