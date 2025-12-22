@@ -153,7 +153,6 @@ export default function SolutionsSection() {
                           <MacBookScene
                             triggerId={`solution-slide-${index}`}
                             screenImage={slide.image}
-                            screenImages={images}
                           />
                         ) : null}
                       </div>

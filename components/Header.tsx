@@ -30,13 +30,10 @@ export default function Header() {
     const el = document.querySelector(href)
     if (el) {
       const headerHeight = 70
-      const windowHeight = window.innerHeight
-      const elementHeight = el.getBoundingClientRect().height
       const elementPosition = el.getBoundingClientRect().top + window.pageYOffset
       
-      // Center the section vertically on screen
-      const centerOffset = (windowHeight - elementHeight) / 2
-      const offsetPosition = elementPosition - headerHeight - Math.max(centerOffset, 0)
+      // Position section just below the header with minimal offset
+      const offsetPosition = elementPosition - headerHeight + 60
       
       window.scrollTo({
         top: offsetPosition,
