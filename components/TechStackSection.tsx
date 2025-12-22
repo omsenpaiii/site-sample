@@ -102,15 +102,23 @@ export default function TechStackSection() {
                     <button
                       type="button"
                       onClick={() => setActiveIndex(index)}
-                      className={`flex w-full items-center justify-between gap-6 px-6 py-4 text-left transition ${
+                      className={`flex w-full items-center justify-between gap-6 px-6 py-5 text-left transition ${
                         isActive ? 'bg-dark-800/60' : 'hover:bg-dark-800/40'
                       }`}
                     >
                       <div className="flex items-center gap-4">
-                        <Image src={item.icon} alt={`${item.title} icon`} width={40} height={40} className="h-9 w-auto" />
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5">
+                          <Image
+                            src={item.icon}
+                            alt={`${item.title} icon`}
+                            width={48}
+                            height={48}
+                            className="h-9 w-auto max-w-[38px]"
+                          />
+                        </div>
                         <div className="min-w-0 space-y-1">
-                          <p className="text-xs uppercase tracking-[0.28em] text-accent-lime">{item.title}</p>
-                          <p className="text-lg font-semibold text-white">{item.tagline}</p>
+                          <p className="text-xs uppercase tracking-[0.28em] text-accent-lime">{item.sideLabel}</p>
+                          <p className="text-lg font-semibold text-white leading-tight">{item.tagline}</p>
                         </div>
                       </div>
                     </button>
@@ -118,18 +126,18 @@ export default function TechStackSection() {
                     <div
                       aria-hidden={!isActive}
                       className={`overflow-hidden transition-[max-height] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
-                        isActive ? 'max-h-[640px]' : 'max-h-0'
+                        isActive ? 'max-h-[820px]' : 'max-h-0'
                       }`}
                     >
                       <div
-                        className={`px-6 pb-6 pt-2 transition-all duration-500 ease-out motion-reduce:transition-none ${
+                        className={`px-6 pb-8 pt-4 transition-all duration-500 ease-out motion-reduce:transition-none ${
                           isActive ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
                         }`}
                       >
                         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_auto] lg:items-start">
-                          <div className="space-y-3">
+                          <div className="space-y-4">
                             <p className="text-base md:text-lg text-gray-200 leading-relaxed">{item.description}</p>
-                            <ul className="grid gap-2 text-sm md:text-base text-gray-200 sm:grid-cols-2 leading-relaxed">
+                            <ul className="flex flex-col gap-2 text-sm md:text-base text-gray-200 leading-relaxed">
                               {item.bullets.map((bullet) => (
                                 <li key={bullet} className="flex items-start gap-2">
                                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-lime" />
@@ -139,13 +147,13 @@ export default function TechStackSection() {
                             </ul>
                           </div>
                           <div className="flex items-center justify-center">
-                            <div className="flex items-center justify-center rounded-2xl bg-white/5 p-3">
+                            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white/5">
                               <Image
                                 src={item.icon}
                                 alt={`${item.title} logo`}
-                                width={80}
-                                height={80}
-                                className="h-12 w-auto"
+                                width={64}
+                                height={64}
+                                className="h-12 w-auto max-w-[56px]"
                               />
                             </div>
                           </div>
@@ -167,18 +175,26 @@ export default function TechStackSection() {
                   <button
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className="flex w-full items-center gap-4 px-6 py-4 text-left"
+                    className="flex w-full items-center gap-4 px-6 py-5 text-left"
                   >
-                    <Image src={item.icon} alt={`${item.title} icon`} width={36} height={36} className="h-8 w-auto" />
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5">
+                      <Image
+                        src={item.icon}
+                        alt={`${item.title} icon`}
+                        width={40}
+                        height={40}
+                        className="h-9 w-auto max-w-[34px]"
+                      />
+                    </div>
                     <div>
-                      <p className="text-xs uppercase tracking-[0.3em] text-accent-lime">{item.title}</p>
-                      <p className="text-lg font-semibold text-white">{item.tagline}</p>
+                      <p className="text-xs uppercase tracking-[0.3em] text-accent-lime">{item.sideLabel}</p>
+                      <p className="text-lg font-semibold text-white leading-tight">{item.tagline}</p>
                     </div>
                   </button>
                   {isActive ? (
-                    <div className="space-y-4 px-6 pb-6">
+                    <div className="space-y-4 px-6 pb-7">
                       <p className="text-gray-300 leading-relaxed">{item.description}</p>
-                      <ul className="grid gap-2 text-sm text-gray-200 sm:grid-cols-2">
+                      <ul className="flex flex-col gap-2 text-sm text-gray-200">
                         {item.bullets.map((bullet) => (
                           <li key={bullet} className="flex items-start gap-2">
                             <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-lime" />

@@ -83,6 +83,18 @@
     );
   }
 
+  .slideshow-texture {
+    background-image:
+      radial-gradient(120% 120% at 15% 18%, rgba(255, 255, 255, 0.35), transparent 58%),
+      radial-gradient(120% 120% at 85% 20%, rgba(247, 147, 30, 0.5), transparent 60%),
+      radial-gradient(120% 120% at 55% 85%, rgba(11, 31, 51, 0.55), transparent 60%),
+      repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 2px, rgba(255, 255, 255, 0) 2px 8px);
+    background-size: 200% 200%, 180% 180%, 160% 160%, 140px 140px;
+    background-position: 0% 0%, 100% 0%, 50% 100%, 0 0;
+    opacity: 0.85;
+    animation: texture-slide 16s ease-in-out infinite alternate;
+  }
+
 
   .scribble-circle {
     position: relative;
@@ -172,6 +184,24 @@
   }
   100% {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes texture-slide {
+  0% {
+    background-position: 0% 0%, 100% 0%, 40% 100%, 0 0;
+  }
+  50% {
+    background-position: 60% 20%, 40% 30%, 70% 70%, 40px 40px;
+  }
+  100% {
+    background-position: 100% 100%, 0% 60%, 30% 0%, 80px 80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slideshow-texture {
+    animation: none;
   }
 }
 

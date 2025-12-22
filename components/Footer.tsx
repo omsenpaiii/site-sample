@@ -125,9 +125,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col md:flex-row md:items-center md:justify-between text-gray-500 text-sm text-center md:text-left space-y-2 md:space-y-0">
           <p>© {new Date().getFullYear()} STGI. All rights reserved.</p>
-          <button onClick={() => handleNavClick('#contact')} className="hover:text-accent-lime transition-colors cursor-pointer">
-            Controls & Disclosures - STGI
-          </button>
+          
         </div>
       </div>
     </footer>

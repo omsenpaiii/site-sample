@@ -3,6 +3,7 @@
 import { Bot, ChevronLeft, ChevronRight, ClipboardCheck, FileSearch, Layers, Sparkle, Workflow } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import MacBookScene from './MacBookScene'
 
 const solutions = [
   {
@@ -64,14 +65,17 @@ const solutions = [
 ]
 
 export default function SolutionsSection() {
-  const images = ['/images/slideshow1.png', '/images/slideshow2.png', '/images/slideshow3.png']
+  const images = ['/images/slideshow1.png', '/images/slideshow2.png', '/images/slideshow3.png', '/images/slideshow4.png', '/images/slideshow5.png', '/images/slideshow6.png', '/images/slideshow7.png', '/images/slideshow8.png']
   const slides = solutions.map((solution, index) => ({
     ...solution,
     image: images[index % images.length],
   }))
+
   const [activeIndex, setActiveIndex] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const interval = window.setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % slides.length)
     }, 6500)
@@ -105,11 +109,14 @@ export default function SolutionsSection() {
           </p>
         </div>
 
+        
+
         <div className="relative overflow-hidden rounded-3xl border border-dark-700/70 bg-dark-900/40">
           <div className="relative h-[420px] sm:h-[460px] lg:h-[520px]">
             {slides.map((slide, index) => (
               <div
                 key={slide.title}
+                id={`solution-slide-${index}`}
                 className={`absolute inset-0 transition-opacity duration-700 ${
                   index === activeIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
@@ -122,9 +129,10 @@ export default function SolutionsSection() {
                   className="object-cover"
                   priority={index === 0}
                 />
+                <div className="pointer-events-none absolute inset-0 slideshow-texture" aria-hidden="true" />
                 <div className="absolute inset-y-0 left-0 w-3/4 bg-gradient-to-r from-dark-900/90 via-dark-900/70 to-transparent sm:w-2/3 lg:w-1/2" />
-                <div className="relative z-10 flex h-full items-end md:items-center">
-                  <div className="max-w-2xl space-y-4 px-6 py-8 sm:px-10 sm:pl-14 md:pl-16">
+                <div className="relative z-10 flex h-full flex-col justify-end gap-6 px-6 py-8 sm:px-10 sm:pl-14 md:flex-row md:items-center md:justify-between md:gap-10 md:pl-16">
+                  <div className="max-w-xl space-y-4">
                     <div className="flex items-center gap-3 text-accent-lime">
                       <div className="w-11 h-11 rounded-xl bg-accent-lime/10 border border-accent-lime/40 flex items-center justify-center">
                         <slide.icon className="w-6 h-6" />
@@ -132,6 +140,17 @@ export default function SolutionsSection() {
                       <h3 className="text-2xl md:text-3xl font-semibold text-white">{slide.title}</h3>
                     </div>
                     <p className="text-gray-100 leading-relaxed">{slide.description}</p>
+                  </div>
+                  <div className="relative w-[80vw] max-w-[420px] self-center md:w-full md:self-auto md:max-w-[520px] lg:max-w-[600px]">
+                    <div className="relative h-56 sm:h-64 md:h-[300px] lg:h-[360px]">
+                      <div
+                        className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-accent-lime/30 blur-2xl opacity-70"
+                        aria-hidden="true"
+                      />
+                      <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-dark-900/40 shadow-2xl shadow-black/40">
+                        <MacBookScene triggerId={`solution-slide-${index}`} />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
