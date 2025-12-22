@@ -131,7 +131,7 @@ export default function SolutionsSection() {
 
         
 
-        <div className="relative overflow-hidden rounded-3xl border border-dark-700/70 bg-dark-900/40">
+        <div className="relative overflow-hidden bg-dark-900/40">
           <div className="relative h-[420px] sm:h-[460px] lg:h-[520px]">
             {slides.map((slide, index) => (
               <div
@@ -162,32 +162,24 @@ export default function SolutionsSection() {
                     </div>
                     <p className="text-gray-100 leading-relaxed">{slide.description}</p>
                   </div>
-                  <div className="relative w-[80vw] max-w-[420px] self-center md:w-full md:self-auto md:max-w-[520px] lg:max-w-[600px]">
-                    <div className="relative h-56 sm:h-64 md:h-[300px] lg:h-[360px]">
-                      <div
-                        className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-accent-lime/30 blur-2xl opacity-70"
-                        aria-hidden="true"
+                  <div 
+                    className="relative w-[80vw] max-w-[420px] self-center md:w-full md:self-auto md:max-w-[520px] lg:max-w-[600px] h-56 sm:h-64 md:h-[300px] lg:h-[360px]"
+                    onMouseMove={handleParallaxMove}
+                    onMouseLeave={handleParallaxLeave}
+                  >
+                    {index === activeIndex ? (
+                      <Image
+                        src={slide.image}
+                        alt={`${slide.title} laptop`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 520px"
+                        className="object-contain transition-transform duration-200"
+                        style={{
+                          transform: `translate3d(${parallaxOffset.x * 12}px, ${parallaxOffset.y * 12}px, 0) scale(1.02)`,
+                        }}
+                        priority={index === 0}
                       />
-                      <div
-                        className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-dark-900/40 shadow-2xl shadow-black/40"
-                        onMouseMove={handleParallaxMove}
-                        onMouseLeave={handleParallaxLeave}
-                      >
-                        {index === activeIndex ? (
-                          <Image
-                            src={slide.image}
-                            alt={`${slide.title} laptop`}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 520px"
-                            className="object-contain transition-transform duration-200"
-                            style={{
-                              transform: `translate3d(${parallaxOffset.x * 12}px, ${parallaxOffset.y * 12}px, 0) scale(1.02)`,
-                            }}
-                            priority={index === 0}
-                          />
-                        ) : null}
-                      </div>
-                    </div>
+                    ) : null}
                   </div>
                 </div>
               </div>

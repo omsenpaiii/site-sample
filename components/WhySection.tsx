@@ -1,20 +1,20 @@
-import { Building2, Gauge, Workflow } from 'lucide-react'
+import { Cpu, HeartHandshake, Landmark } from 'lucide-react'
 
 const reasons = [
   {
-    icon: Building2,
+    icon: Landmark,
     title: 'Deep Domain Knowledge',
     description:
       'With deep-seated roots in the banking sector, we don’t just offer services; we offer understanding. We speak your language and anticipate the unique regulatory and operational hurdles you face, allowing us to engineer optimal solutions that fit your specific ecosystem.',
   },
   {
-    icon: Workflow,
+    icon: Cpu,
     title: 'Technology-First Approach',
     description:
       'We believe that modern problems require modern tools. As a Technology-First organization, our methodology is built around digital transformation. We leverage cutting-edge tech to automate workflows, reduce risk, and solve complex financial challenges with precision and scale.',
   },
   {
-    icon: Gauge,
+    icon: HeartHandshake,
     title: 'Passionate People',
     description:
       'Beyond the code and the spreadsheets, our greatest asset is our people. We are a team of dedicated problem-solvers who are genuinely invested in your growth. We don’t just work for you—we work with you, driven by a passion to ensure your long-term success.',
