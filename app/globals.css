@@ -89,10 +89,10 @@
       radial-gradient(120% 120% at 85% 20%, rgba(247, 147, 30, 0.5), transparent 60%),
       radial-gradient(120% 120% at 55% 85%, rgba(11, 31, 51, 0.55), transparent 60%),
       repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 2px, rgba(255, 255, 255, 0) 2px 8px);
-    background-size: 200% 200%, 180% 180%, 160% 160%, 140px 140px;
-    background-position: 0% 0%, 100% 0%, 50% 100%, 0 0;
+    background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%;
+    background-position: 0% 0%, 100% 0%, 50% 100%, 0% 50%;
     opacity: 0.85;
-    animation: texture-slide 16s ease-in-out infinite alternate;
+    animation: texture-slide 80s ease-in-out infinite;
   }
 
   .scribble-circle {
@@ -188,13 +188,19 @@
 
 @keyframes texture-slide {
   0% {
-    background-position: 0% 0%, 100% 0%, 40% 100%, 0 0;
+    background-position: 0% 0%, 100% 0%, 50% 100%, 0% 50%;
+  }
+  25% {
+    background-position: 25% 25%, 75% 25%, 25% 75%, 50% 50%;
   }
   50% {
-    background-position: 60% 20%, 40% 30%, 70% 70%, 40px 40px;
+    background-position: 50% 50%, 50% 50%, 0% 50%, 100% 50%;
+  }
+  75% {
+    background-position: 75% 75%, 25% 75%, 75% 25%, 150% 50%;
   }
   100% {
-    background-position: 100% 100%, 0% 60%, 30% 0%, 80px 80px;
+    background-position: 100% 100%, 0% 100%, 50% 0%, 200% 50%;
   }
 }
 

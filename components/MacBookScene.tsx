@@ -85,7 +85,7 @@ function MacBookModel({
       minIndex === 0 ? [0, Math.PI / 2, 0] : minIndex === 1 ? [-Math.PI / 2, 0, 0] : [0, 0, 0]
 
     const position = center.clone()
-    const offset = dims[minIndex] / 2 + 0.004
+    const offset = dims[minIndex] / 2 + 0.1
     if (minIndex === 0) position.x += offset
     if (minIndex === 1) position.y += offset
     if (minIndex === 2) position.z += offset
