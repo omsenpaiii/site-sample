@@ -174,7 +174,7 @@ function MacBookModel({
   })
 
   return (
-    <group ref={groupRef} position={[0, -0.85, -0.35]} rotation={[0.12, Math.PI, 0]} scale={1.1}>
+    <group ref={groupRef} position={[0, -0.55, -0.4]} rotation={[0.22, Math.PI, 0]} scale={1.1}>
       <group ref={topRef}>
         <primitive object={topModel.nodes.Top} />
         {screenConfig ? (
@@ -236,7 +236,7 @@ export function MacBookScene({
   return (
     <div className="relative h-full w-full">
       <Suspense fallback={<div className="h-full w-full bg-dark-900/40" />}>
-        <Canvas camera={{ position: [0, 0.1, 4.8], fov: 55 }} className="rounded-2xl">
+        <Canvas camera={{ position: [0, 0.6, 4.4], fov: 55 }} className="rounded-2xl">
           <ambientLight intensity={0.6} />
           <directionalLight intensity={5} position={[1, 3, 3]} />
           <MacBookModel triggerId={triggerId} screenImage={screenImage} screenImages={screenImages} />
