@@ -135,8 +135,8 @@ export default function SolutionsSection() {
                 <div className="relative z-10 flex h-full flex-col justify-end gap-6 px-6 py-8 sm:px-10 sm:pl-14 md:flex-row md:items-center md:justify-between md:gap-10 md:pl-16">
                   <div className="max-w-xl space-y-4">
                     <div className="flex items-center gap-3 text-accent-lime">
-                      <div className="w-11 h-11 rounded-xl bg-accent-lime/10 border border-accent-lime/40 flex items-center justify-center">
-                        <slide.icon className="w-6 h-6" />
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-accent-lime/40 bg-accent-lime/10">
+                        <slide.icon className="h-6 w-6" />
                       </div>
                       <h3 className="text-2xl md:text-3xl font-semibold text-white">{slide.title}</h3>
                     </div>
