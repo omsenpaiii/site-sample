@@ -47,11 +47,17 @@ function MacBookModel({
   const overlayList = screenImages && screenImages.length ? overlayTextures : []
   useEffect(() => {
     screenTexture.colorSpace = THREE.SRGBColorSpace
-    screenTexture.flipY = false
+    screenTexture.flipY = true
+    screenTexture.wrapS = THREE.RepeatWrapping
+    screenTexture.repeat.x = -1
+    screenTexture.offset.x = 1
     screenTexture.needsUpdate = true
     overlayList.forEach((texture) => {
       texture.colorSpace = THREE.SRGBColorSpace
-      texture.flipY = false
+      texture.flipY = true
+      texture.wrapS = THREE.RepeatWrapping
+      texture.repeat.x = -1
+      texture.offset.x = 1
       texture.needsUpdate = true
     })
   }, [screenTexture, overlayList])
@@ -85,7 +91,7 @@ function MacBookModel({
     if (minIndex === 2) position.z += offset
 
     setScreenConfig({
-      size: [width * 0.74, height * 0.46],
+      size: [width * 0.8, height * 0.5],
       position: [position.x, position.y, position.z],
       rotation,
     })
