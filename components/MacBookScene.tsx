@@ -91,7 +91,7 @@ function MacBookModel({
     if (minIndex === 2) position.z += offset
 
     setScreenConfig({
-      size: [width * 0.8, height * 0.5],
+      size: [width * 0.8, height * 0.6],
       position: [position.x, position.y, position.z],
       rotation,
     })
