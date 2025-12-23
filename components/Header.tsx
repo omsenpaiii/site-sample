@@ -33,7 +33,10 @@ export default function Header() {
       const elementPosition = el.getBoundingClientRect().top + window.pageYOffset
       
       // Position section just below the header with minimal offset
-      const offsetPosition = elementPosition - headerHeight + 60
+      // No offset for contact section
+      const offsetPosition = href === '#contact' 
+        ? elementPosition - headerHeight - 30
+        : elementPosition - headerHeight + 60
       
       window.scrollTo({
         top: offsetPosition,

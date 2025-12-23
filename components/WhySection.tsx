@@ -26,7 +26,7 @@ export default function WhySection() {
     <section id="solutions" className="section-padding bg-dark-900 relative overflow-hidden">
       <div className="absolute inset-0 hero-grid opacity-5" />
       <div className="container-custom relative z-10">
-        <div className="max-w-3xl">
+        <div className="max-w-5xl">
           <p className="text-base sm:text-lg uppercase tracking-[0.35em] text-accent-lime mb-3">
             Why Financial Institutions Partner with STGI 
           </p>
