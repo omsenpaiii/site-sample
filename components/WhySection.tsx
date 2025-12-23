@@ -27,12 +27,11 @@ export default function WhySection() {
       <div className="absolute inset-0 hero-grid opacity-5" />
       <div className="container-custom relative z-10">
         <div className="max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.25em] text-accent-lime mb-3">
+          <p className="text-base sm:text-lg uppercase tracking-[0.35em] text-accent-lime mb-3">
             Why Financial Institutions Partner with STGI 
           </p>
           <p className="text-gray-300 leading-relaxed">
-            STGI stands at the intersection of traditional banking wisdom and modern 
-            technological innovation. Here is why industry leaders choose us: 
+            STGI stands at the intersection of traditional banking wisdom and modern technological innovation. Here is why industry leaders choose us: 
           </p>
         </div>
 

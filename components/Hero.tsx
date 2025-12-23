@@ -54,9 +54,10 @@ export default function Hero() {
                 Built for Banks. Designed by Bankers. Delivered with Technology.
               </span>
             </p>
-            <p className="text-gray-200 text-base md:text-lg">
+            {/* <p className="text-gray-200 text-base md:text-lg">
               Digitize Originations. Automate Underwriting. Modernize Servicing. Transform your lending ecosystem end-to-end in a faster, smarter, and secure manner.
-            </p>
+            </p> */}
+            <div className="h-6 md:h-3" aria-hidden="true" />
             <div className="flex flex-wrap items-center gap-4">
               <button onClick={scrollToDemo} className="btn-primary text-lg px-8 py-4">
                 <span>Request a Demo</span>
