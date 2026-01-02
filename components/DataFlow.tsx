@@ -1,118 +1,240 @@
 import Image from "next/image";
 import Logo01 from "@/public/images/logo.png";
-import Logo02 from "@/public/images/argocd.png";
-import Logo03 from "@/public/images/logo3.png";
-import Logo04 from "@/public/images/mailhog.png";
-import Logo05 from "@/public/images/Datadog.png";
-import Logo06 from "@/public/images/DocuSign.svg";
-import Logo07 from "@/public/images/postman.png";
-import Logo08 from "@/public/images/posgresql.webp";
-import Logo09 from "@/public/images/fico.webp";
-
-const orbitRadius = 34;
-const innerRing = 18;
-const midRing = 26;
-
-const orbitNodes = [
-  { logo: Logo02, alt: "Logo 02", angle: -90, size: "h-16 w-16", icon: "h-8 w-auto", delay: "0s" },
-  { logo: Logo03, alt: "Logo 03", angle: -45, size: "h-14 w-14", icon: "h-7 w-auto", delay: "0.4s" },
-  { logo: Logo04, alt: "Logo 04", angle: 0, size: "h-16 w-16", icon: "h-8 w-auto", delay: "0.8s" },
-  { logo: Logo05, alt: "Logo 05", angle: 45, size: "h-16 w-16", icon: "h-8 w-auto", delay: "1.2s" },
-  { logo: Logo06, alt: "Logo 06", angle: 90, size: "h-16 w-16", icon: "h-8 w-auto", delay: "1.6s" },
-  { logo: Logo07, alt: "Logo 07", angle: 135, size: "h-16 w-16", icon: "h-8 w-auto", delay: "2s" },
-  { logo: Logo08, alt: "Logo 08", angle: 180, size: "h-12 w-12", icon: "h-6 w-auto", delay: "2.4s", muted: true },
-  { logo: Logo09, alt: "Logo 09", angle: -135, size: "h-12 w-12", icon: "h-6 w-auto", delay: "2.8s", muted: true },
-];
-const trailDelays = [0.6, 3.2, 1.5, 4.4, 0.2, 2.7, 3.8, 1.1];
+import Logo02 from "@/public/images/logo3.png";
+import Logo03 from "@/public/images/stripe.png";
+import Logo04 from "@/public/images/DocuSign.svg";
+import Logo05 from "@/public/images/fico.png";
+import Logo06 from "@/public/images/plaid.png";
+import Logo07 from "@/public/images/ThomsonReuters.png";
+import Logo08 from "@/public/images/WoltersKluwer.png";
+import Logo09 from "@/public/images/CoreLogic.png";
 
 export default function DataFlow() {
-  const orbitPoints = orbitNodes.map((node) => {
-    const angle = (node.angle * Math.PI) / 180;
-    const x = 50 + Math.cos(angle) * orbitRadius;
-    const y = 50 + Math.sin(angle) * orbitRadius;
-
-    return { ...node, x, y };
-  });
-
   return (
-    <section className="bg-gray-100 rounded-3xl mx-4 md:mx-8 lg:mx-16">
+    <section className="relative overflow-hidden rounded-3xl bg-white/95 px-4 py-10 shadow-xl shadow-black/10 ring-1 ring-white/70">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="py-2 md:py-2">
-          <div className="relative flex h-[360px] items-center justify-center sm:h-[420px] lg:h-[520px]">
-            <div className="relative h-full aspect-square">
-              <div className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-3xl" />
-
-              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" aria-hidden="true">
-                <circle cx="50" cy="50" r={innerRing} fill="none" stroke="#d1d5db" strokeWidth="0.6" />
-                <circle cx="50" cy="50" r={midRing} fill="none" stroke="#cbd5f5" strokeWidth="0.5" />
+        <div className="pb-6 md:pb-8">
+          <div className="relative flex h-[320px] items-center justify-center sm:h-[360px] lg:h-[420px]">
+            <div className="absolute -z-10">
+              <svg
+                className="fill-blue-500"
+                xmlns="http://www.w3.org/2000/svg"
+                width={164}
+                height={41}
+                viewBox="0 0 164 41"
+                fill="none"
+              >
+                <circle cx={1} cy={8} r={1} fillOpacity="0.24" />
+                <circle cx={1} cy={1} r={1} fillOpacity="0.16" />
+                <circle cx={1} cy={15} r={1} />
+                <circle cx={1} cy={26} r={1} fillOpacity="0.64" />
+                <circle cx={1} cy={33} r={1} fillOpacity="0.24" />
+                <circle cx={8} cy={8} r={1} />
+                <circle cx={8} cy={15} r={1} />
+                <circle cx={8} cy={26} r={1} fillOpacity="0.24" />
+                <circle cx={15} cy={15} r={1} fillOpacity="0.64" />
+                <circle cx={15} cy={26} r={1} fillOpacity="0.16" />
+                <circle cx={8} cy={33} r={1} />
+                <circle cx={1} cy={40} r={1} />
                 <circle
-                  cx="50"
-                  cy="50"
-                  r={orbitRadius}
-                  fill="none"
-                  stroke="#93c5fd"
-                  strokeWidth="0.7"
-                  strokeDasharray="6 12"
-                  strokeLinecap="round"
-                  className="animate-[dash_10s_linear_infinite]"
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 164 7)"
+                  fillOpacity="0.24"
                 />
-              {orbitPoints.map((point) => (
-                <line
-                  key={`line-${point.alt}`}
-                  x1="50"
-                  y1="50"
-                  x2={point.x}
-                  y2={point.y}
-                  stroke="#c7d2fe"
-                  strokeWidth="0.7"
-                  strokeLinecap="round"
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 164 0)"
+                  fillOpacity="0.16"
                 />
-              ))}
-              {orbitPoints.map((point, index) => (
-                <line
-                  key={`trail-${point.alt}`}
-                  x1="50"
-                  y1="50"
-                  x2={point.x}
-                  y2={point.y}
-                  stroke="#60a5fa"
-                  strokeWidth="1"
-                  strokeOpacity="0.7"
-                  strokeLinecap="round"
-                  strokeDasharray="10 18"
-                  className="animate-[dash_12s_linear_infinite]"
-                  style={{ animationDelay: `${trailDelays[index % trailDelays.length]}s` }}
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 164 14)"
                 />
-              ))}
-              {orbitPoints.map((point) => (
-                <circle key={`node-${point.alt}`} cx={point.x} cy={point.y} r="1.3" fill="#93c5fd" />
-              ))}
-            </svg>
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 164 25)"
+                  fillOpacity="0.64"
+                />
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 164 32)"
+                  fillOpacity="0.24"
+                />
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 157 7)"
+                />
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 157 14)"
+                />
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 157 25)"
+                  fillOpacity="0.24"
+                />
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 150 14)"
+                  fillOpacity="0.64"
+                />
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 150 25)"
+                  fillOpacity="0.16"
+                />
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 157 32)"
+                />
+                <circle
+                  cx={1}
+                  cy={1}
+                  r={1}
+                  transform="matrix(-1 0 0 1 164 39)"
+                />
+              </svg>
+            </div>
+            <div className="absolute -z-10">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={432}
+                height={160}
+                viewBox="0 0 432 160"
+                fill="none"
+              >
+                <g opacity="0.6" filter="url(#filter0_f_2044_9)">
+                  <path
+                    className="fill-blue-500"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M80 112C62.3269 112 48 97.6731 48 80C48 62.3269 62.3269 48 80 48C97.6731 48 171 62.3269 171 80C171 97.6731 97.6731 112 80 112ZM352 112C369.673 112 384 97.6731 384 80C384 62.3269 369.673 48 352 48C334.327 48 261 62.3269 261 80C261 97.6731 334.327 112 352 112Z"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_f_2044_9"
+                    x={0}
+                    y={0}
+                    width={432}
+                    height={160}
+                    filterUnits="userSpaceOnUse"
+                    colorInterpolationFilters="sRGB"
+                  >
+                    <feFlood floodOpacity={0} result="BackgroundImageFix" />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="BackgroundImageFix"
+                      result="shape"
+                    />
+                    <feGaussianBlur
+                      stdDeviation={32}
+                      result="effect1_foregroundBlur_2044_9"
+                    />
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-px bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-px bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-[200px] top-1/2 z-0 h-px bg-gradient-to-r from-transparent via-blue-400/70 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-1/2 z-0 h-px -translate-y-[82px] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent before:absolute before:inset-y-0 before:w-24 before:animate-[line_10s_ease-in-out_infinite_both] before:bg-gradient-to-r before:from-transparent before:via-blue-500 before:to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-1/2 z-0 h-px translate-y-[82px] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent before:absolute before:inset-y-0 before:w-24 before:animate-[line_10s_ease-in-out_infinite_5s_both] before:bg-gradient-to-r before:from-transparent before:via-blue-500 before:to-transparent" />
+            <div className="pointer-events-none absolute inset-x-[300px] top-1/2 z-0 h-px rotate-[20deg] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-[300px] top-1/2 z-0 h-px -rotate-[20deg] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-px -translate-x-[216px] bg-gradient-to-b from-slate-300/70 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-px translate-x-[216px] bg-gradient-to-t from-slate-300/70 to-transparent" />
 
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 before:absolute before:-inset-3 before:animate-spin before:rounded-full before:border before:border-transparent before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] before:[background:conic-gradient(from_180deg,transparent,theme(colors.blue.500))_border-box]">
-                <div className="animate-[breath_8s_ease-in-out_infinite_both]">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.06] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
-                    <Image className="relative" src={Logo01} width={36} height={36} alt="Logo 01" />
-                  </div>
+            <div className="absolute z-10 before:absolute before:-inset-3 before:animate-[spin_3s_linear_infinite] before:rounded-full before:border before:border-transparent before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] before:[background:conic-gradient(from_180deg,transparent,#3b82f6)_border-box]">
+              <div className="animate-[breath_8s_ease-in-out_infinite_both]">
+                <div className="flex h-28 w-28 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
+                  <Image className="relative" src={Logo01} width={36} height={36} alt="Logo 01" />
                 </div>
               </div>
+            </div>
 
-              {orbitPoints.map((point) => (
-                <div
-                  key={point.alt}
-                  className="absolute"
-                  style={{ left: `${point.x}%`, top: `${point.y}%`, transform: "translate(-50%, -50%)" }}
-                >
-                  <div
-                    className={`flex items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.06] ring-1 ring-gray-200/70 animate-[breath_7s_ease-in-out_infinite_both] ${
-                      point.size
-                    } ${point.muted ? "opacity-70" : ""}`}
-                    style={{ animationDelay: point.delay }}
-                  >
-                    <Image className={`relative ${point.icon}`} src={point.logo} width={48} height={48} alt={point.alt} />
+            <div className="relative z-10 flex flex-col">
+              <article className="flex h-full w-full items-center justify-center focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-indigo-300">
+                <div className="absolute -translate-x-[136px]">
+                  <div className="animate-[breath_7s_ease-in-out_3s_infinite_both]">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
+                      <Image className="relative" src={Logo02} width={28} height={26} alt="Logo 02" />
+                    </div>
                   </div>
                 </div>
-              ))}
+                <div className="absolute translate-x-[136px]">
+                  <div className="animate-[breath_7s_ease-in-out_3.5s_infinite_both]">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
+                      <Image className="relative" src={Logo03} width={28} height={28} alt="Logo 03" />
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -translate-x-[216px] -translate-y-[82px]">
+                  <div className="animate-[breath_6s_ease-in-out_3.5s_infinite_both]">
+                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
+                      <Image className="relative" src={Logo04} width={30} height={26} alt="Logo 04" />
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -translate-y-[82px] translate-x-[216px]">
+                  <div className="animate-[breath_6s_ease-in-out_1.5s_infinite_both]">
+                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
+                      <Image className="relative" src={Logo05} width={30} height={30} alt="Logo 05" />
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute translate-x-[216px] translate-y-[82px]">
+                  <div className="animate-[breath_6s_ease-in-out_2s_infinite_both]">
+                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
+                      <Image className="relative" src={Logo06} width={26} height={22} alt="Logo 06" />
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -translate-x-[216px] translate-y-[82px]">
+                  <div className="animate-[breath_6s_ease-in-out_2.5s_infinite_both]">
+                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
+                      <Image className="relative" src={Logo07} width={30} height={30} alt="Logo 07" />
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -translate-x-[292px] opacity-40">
+                  <div className="animate-[breath_6s_ease-in-out_2s_infinite_both]">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gray-200/60 bg-white shadow-lg">
+                      <Image className="relative" src={Logo08} width={22} height={22} alt="Logo 08" />
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute translate-x-[292px] opacity-40">
+                  <div className="animate-[breath_6s_ease-in-out_4s_infinite_both]">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gray-200/60 bg-white shadow-lg">
+                      <Image className="relative" src={Logo09} width={23} height={14} alt="Logo 09" />
+                    </div>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </div>
