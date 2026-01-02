@@ -258,34 +258,3 @@ select:focus {
   background-color: #f7931e;
   color: #000;
 }
-
-/* Cursor trail triangles */
-.cursor-trail-triangle {
-  position: fixed;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 10px solid #f7931e;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%) rotate(0deg);
-  animation: trail-fade 0.8s ease-out forwards;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 4px rgba(247, 147, 30, 0.6));
-}
-
-@keyframes trail-fade {
-  0% {
-    opacity: 0.9;
-    transform: translate(-50%, -50%) rotate(0deg) scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translate(-50%, -50%) rotate(180deg) scale(0.8);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(360deg) scale(0.3);
-  }
-} 
