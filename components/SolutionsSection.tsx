@@ -161,7 +161,8 @@ export default function SolutionsSection() {
                   src={slide.image}
                   alt={`${slide.title} background`}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 960px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+                  quality={70}
                   className="object-cover"
                   priority={index === 0}
                 />
@@ -194,7 +195,8 @@ export default function SolutionsSection() {
                         src={slide.image}
                         alt={`${slide.title} laptop`}
                         fill
-                        sizes="(max-width: 1024px) 100vw, 520px"
+                        sizes="(max-width: 640px) 85vw, (max-width: 1024px) 70vw, 600px"
+                        quality={70}
                         className="object-contain transition-transform duration-200"
                         style={{
                           transform: `translate3d(${parallaxOffset.x * 12}px, ${parallaxOffset.y * 12}px, 0) scale(1.02)`,

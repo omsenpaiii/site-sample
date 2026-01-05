@@ -31,8 +31,8 @@ export default function AboutSection() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-white border border-gray-200 shadow-xl px-7 py-10 md:px-10 md:py-12">
-          <div className="flex items-center gap-4">
+          <div className="rounded-2xl bg-white border border-gray-200 shadow-xl px-7 py-10 md:px-10 md:py-12">
+            <div className="flex items-center gap-4">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#f7931e]">Our Values</p>
             <div className="h-px flex-1 bg-gray-200" />
           </div>

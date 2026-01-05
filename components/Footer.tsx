@@ -54,7 +54,7 @@ export default function Footer() {
                 />
               </div>
             </button>
-            <p className="text-gray-400 text-xs">
+            <p className="text-gray-300 text-xs">
               Transforming lending with automation, AI, and cloud-native workflows tailored for regulated financial
               institutions.
             </p>
@@ -117,6 +117,7 @@ export default function Footer() {
             </button>
             <a
               href="https://www.linkedin.com/company/stgi-tech/"
+              aria-label="STGI on LinkedIn"
               className="w-11 h-11 rounded-full bg-dark-800 border border-dark-700 hover:border-accent-lime/50 flex items-center justify-center"
             >
               <Linkedin className="w-5 h-5 text-accent-lime" />

@@ -3,11 +3,49 @@
 import { CalendarDays, PhoneCall } from 'lucide-react'
 
 export default function DemoSection() {
-  const openCalendly = () => {
-    if (typeof window !== 'undefined' && (window as any).Calendly) {
-      (window as any).Calendly.initPopupWidget({
-        url: 'https://calendly.com/stgi/30min'
-      })
+  const loadCalendly = () => {
+    if (typeof window === 'undefined') {
+      return Promise.resolve()
+    }
+
+    if ((window as any).Calendly) {
+      return Promise.resolve()
+    }
+
+    return new Promise<void>((resolve, reject) => {
+      const existingScript = document.querySelector<HTMLScriptElement>('script[data-calendly]')
+      if (existingScript) {
+        existingScript.addEventListener('load', () => resolve())
+        existingScript.addEventListener('error', () => reject())
+        return
+      }
+
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = 'https://assets.calendly.com/assets/external/widget.css'
+      link.dataset.calendly = 'true'
+      document.head.appendChild(link)
+
+      const script = document.createElement('script')
+      script.src = 'https://assets.calendly.com/assets/external/widget.js'
+      script.async = true
+      script.dataset.calendly = 'true'
+      script.onload = () => resolve()
+      script.onerror = () => reject()
+      document.body.appendChild(script)
+    })
+  }
+
+  const openCalendly = async () => {
+    try {
+      await loadCalendly()
+      if ((window as any).Calendly) {
+        (window as any).Calendly.initPopupWidget({
+          url: 'https://calendly.com/stgi/30min'
+        })
+      }
+    } catch {
+      // no-op: fallback to normal button behavior if Calendly fails to load
     }
   }
 
@@ -19,6 +57,7 @@ export default function DemoSection() {
         loop
         muted
         playsInline
+        preload="none"
         className="absolute inset-0 w-full h-full object-cover opacity-30"
       >
         <source src="/videos/bg-video-careers.mp4" type="video/mp4" />

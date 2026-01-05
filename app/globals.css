@@ -37,6 +37,20 @@
 }
 
 @layer components {
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+    filter: blur(10px);
+    transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+    will-change: transform, opacity, filter;
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
   .btn-primary {
     @apply inline-flex items-center bg-accent-lime text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-accent-green hover:scale-105 active:scale-95 cursor-pointer;
   }
@@ -205,6 +219,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+
   .slideshow-texture {
     animation: none;
   }

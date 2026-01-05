@@ -80,6 +80,8 @@ export default function Hero() {
                 alt="Loans platform dashboard screen"
                 width={1536}
                 height={1005}
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 1200px"
+                quality={70}
                 className="relative z-10 h-auto w-full scale-100 sm:scale-110 lg:scale-125"
                 priority
               />
