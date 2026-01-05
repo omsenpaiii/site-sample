@@ -9,12 +9,100 @@ import Logo07 from "@/public/images/ThomsonReuters.png";
 import Logo08 from "@/public/images/WoltersKluwer.png";
 import Logo09 from "@/public/images/CoreLogic.png";
 
+const mobileOrbitRadius = 46;
+const mobileInnerRing = 16;
+const mobileMidRing = 24;
+
+const mobileNodes = [
+  { logo: Logo02, alt: "Logo 02", angle: -90, size: "h-12 w-12", width: 26, height: 24, delay: "0s", radiusOffset: 1 },
+  { logo: Logo03, alt: "Logo 03", angle: -45, size: "h-11 w-11", width: 24, height: 24, delay: "0.4s", radiusOffset: 2 },
+  { logo: Logo04, alt: "Logo 04", angle: 0, size: "h-12 w-12", width: 26, height: 24, delay: "0.8s", radiusOffset: 0 },
+  { logo: Logo05, alt: "Logo 05", angle: 45, size: "h-12 w-12", width: 26, height: 26, delay: "1.2s", radiusOffset: 2 },
+  { logo: Logo06, alt: "Logo 06", angle: 90, size: "h-12 w-12", width: 24, height: 22, delay: "1.6s", radiusOffset: 1 },
+  { logo: Logo07, alt: "Logo 07", angle: 135, size: "h-12 w-12", width: 26, height: 26, delay: "2s", radiusOffset: 2 },
+  { logo: Logo08, alt: "Logo 08", angle: 180, size: "h-10 w-10", width: 20, height: 20, delay: "2.4s", muted: true, radiusOffset: -2 },
+  { logo: Logo09, alt: "Logo 09", angle: -135, size: "h-10 w-10", width: 20, height: 14, delay: "2.8s", muted: true, radiusOffset: -1 },
+];
+
 export default function DataFlow() {
+  const mobileOrbitPoints = mobileNodes.map((node) => {
+    const angle = (node.angle * Math.PI) / 180;
+    const radius = mobileOrbitRadius + (node.radiusOffset ?? 0);
+    const x = 50 + Math.cos(angle) * radius;
+    const y = 50 + Math.sin(angle) * radius;
+
+    return { ...node, x, y };
+  });
+
   return (
-    <section className="relative overflow-hidden rounded-3xl bg-white/95 px-4 py-10 shadow-xl shadow-black/10 ring-1 ring-white/70">
+    <section className="relative overflow-hidden rounded-3xl bg-white/95 px-4 pt-10 pb-6 shadow-xl shadow-black/10 ring-1 ring-white/70 sm:pb-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="pb-6 md:pb-8">
-          <div className="relative flex h-[320px] items-center justify-center sm:h-[360px] lg:h-[420px]">
+          <div className="relative flex h-[300px] items-center justify-center sm:hidden">
+            <div className="relative h-[270px] w-[270px]">
+              <div className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-2xl" />
+              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r={mobileInnerRing} fill="none" stroke="#d1d5db" strokeWidth="0.6" />
+                <circle cx="50" cy="50" r={mobileMidRing} fill="none" stroke="#cbd5f5" strokeWidth="0.5" />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r={mobileOrbitRadius}
+                  fill="none"
+                  stroke="#93c5fd"
+                  strokeWidth="0.7"
+                  strokeDasharray="6 12"
+                  strokeLinecap="round"
+                  className="animate-[dash_10s_linear_infinite]"
+                />
+                {mobileOrbitPoints.map((point) => (
+                  <line
+                    key={`mobile-line-${point.alt}`}
+                    x1="50"
+                    y1="50"
+                    x2={point.x}
+                    y2={point.y}
+                    stroke="#c7d2fe"
+                    strokeWidth="0.6"
+                    strokeLinecap="round"
+                  />
+                ))}
+              </svg>
+
+              <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 before:absolute before:-inset-2 before:animate-[spin_3s_linear_infinite] before:rounded-full before:border before:border-transparent before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] before:[background:conic-gradient(from_180deg,transparent,#3b82f6)_border-box]">
+                <div className="animate-[breath_8s_ease-in-out_infinite_both]">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.04] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
+                    <Image className="relative" src={Logo01} width={36} height={36} alt="Logo 01" />
+                  </div>
+                </div>
+              </div>
+
+              {mobileOrbitPoints.map((point) => (
+                <div
+                  key={point.alt}
+                  className="absolute z-10"
+                  style={{ left: `${point.x}%`, top: `${point.y}%`, transform: "translate(-50%, -50%)" }}
+                >
+                  <div
+                    className={`flex items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.04] ring-1 ring-gray-200/70 animate-[breath_7s_ease-in-out_infinite_both] ${
+                      point.size
+                    } ${point.muted ? "opacity-70" : ""}`}
+                    style={{ animationDelay: point.delay }}
+                  >
+                    <Image
+                      className="relative"
+                      src={point.logo}
+                      width={point.width}
+                      height={point.height}
+                      alt={point.alt}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative hidden h-[320px] items-center justify-center sm:flex sm:h-[360px] lg:h-[420px]">
             <div className="absolute -z-10">
               <svg
                 className="fill-blue-500"

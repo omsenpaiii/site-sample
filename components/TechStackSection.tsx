@@ -80,7 +80,7 @@ export default function TechStackSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const providerLogos = ['/images/aws2.png', '/images/azure.png', '/images/gcp.png', '/images/oracle.png']
   const dataLogos = ['/images/Datadog.png', '/images/dataRobot.png', '/images/posgresql.webp', '/images/redis.png']
-  const rpaLogos = ['/images/UiPath.png', '/images/automationanywhere.png', '/images/blueprism.png']
+  const rpaLogos = ['/images/UiPath.png', '/images/automationanywhere.png', '/images/PowerAutomate.webp', '/images/blueprism.png']
   const integrationsLogos = ['/images/postman.png', '/images/DocuSign.svg', '/images/fico.png', '/images/Experian.png']
   const supportLogos = ['/images/argocd.png', '/images/splunk.png', '/images/sentry.webp', '/images/temporal.svg']
 

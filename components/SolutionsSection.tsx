@@ -8,6 +8,7 @@ const solutions = [
   {
     icon: ClipboardCheck,
     title: 'Covenant & Tickler Management',
+    mobileTitle: 'Covenant & Tickler Mgmt',
     description:
       'Protect portfolio health with an integrated Covenant & Tickler Management solution that keeps risk in check. Track covenant compliance and critical ticklers in real time with a structured review and approval workflow. Reduce surprises, improve visibility, and act early to safeguard returns.',
     mobileDescription: 'Track covenant compliance and critical ticklers in real time.',
@@ -16,6 +17,7 @@ const solutions = [
   {
     icon: Workflow,
     title: 'Post-Disbursement Progress Monitoring',
+    mobileTitle: 'Post-Disbursement Monitoring',
     description:
       'Ensure ongoing control after or during funding with Post-Disbursement Progress Monitoring. Track milestones, conditions, and usage or milestones of funds through structured reviews and real-time updates. Detect issues early, maintain compliance, and protect portfolio performance throughout the loan lifecycle.',
     mobileDescription: 'Monitor funding milestones and conditions with real-time updates.',
@@ -24,6 +26,7 @@ const solutions = [
   {
     icon: Bot,
     title: 'Rule Based Dynamic Workflow Engine',
+    mobileTitle: 'Rule-Based Workflow Engine',
     description:
       'Automate complex processes with a Rule-Based Dynamic Workflow Engine that adapts in real time. Configure rules to route tasks, trigger approvals, and enforce policy based on data and events. Cut turnaround time, reduce manual errors, and keep operations consistently audit-ready.',
     mobileDescription: 'Route tasks and approvals automatically with real-time rules.',
@@ -32,30 +35,34 @@ const solutions = [
   {
     icon: FileSearch,
     title: 'AI-Enabled Document Scrubbing',
+    mobileTitle: 'AI Document Scrubbing',
     description:
       'Automatically extract, validate, and flag risks or inconsistencies across large document sets. Reduce manual effort, improve accuracy, and make faster, more confident decisions.',
-    mobileDescription: 'Extract, validate, and flag risks across large document sets.',
+    mobileDescription: 'Extract, validate, and flag document risks faster.',
     // public/images/slideshow4.png
   },
   {
     icon: ClipboardCheck,
     title: 'Intelligent Document Validation Engine',
+    mobileTitle: 'Document Validation Engine',
     description:
       'Detect and prevent fraud with AI-powered document checks. Automatically identify forged, altered, or inconsistent documents using intelligent pattern analysis. Reduce risk, speed up reviews, and strengthen trust across every transaction.',
-    mobileDescription: 'Detect fraud and inconsistencies fast with AI-powered checks.',
+    mobileDescription: 'Detect fraud and inconsistencies with AI checks.',
     // public/images/slideshow5.png
     },
   {
     icon: Layers,
     title: 'Advanced Credit Memo Builder',
+    mobileTitle: 'Credit Memo Builder',
     description:
       'Automate credit analysis with customizable credit memo templates, ratio calculations, AI summaries, and institution-specific narratives.',
-    mobileDescription: 'Automate credit memos with templates, ratios, and AI summaries.',
+    mobileDescription: 'Automate credit memos with templates and AI summaries.',
     // public/images/slideshow6.png
     },
   {
     icon: Sparkle,
     title: 'Configurable and Advanced Spreading Capabilities',
+    mobileTitle: 'Advanced Spreading',
     description:
       'Streamline analysis with Configurable and Advanced Spreading Capabilities in the platform. Easily adapt templates and rules to spread financials across industries, entities, and deal types. Improve accuracy, consistency, and speed from data capture to credit decision.',
     mobileDescription: 'Adapt templates and spread financials faster across entities.',
@@ -64,9 +71,10 @@ const solutions = [
   {
     icon: FileSearch,
     title: 'Advanced Lending Analytics & Insights',
+    mobileTitle: 'Lending Analytics',
     description:
       'Get real-time dashboards for portfolio performance, borrower behaviour, risk scoring, and trend predictions.',
-    mobileDescription: 'Dashboards for portfolio performance, risk, and trend insights.',
+    mobileDescription: 'Dashboards for portfolio performance, risk, and trends.',
     // public/images/slideshow8.png
     },
 ]
@@ -124,7 +132,7 @@ export default function SolutionsSection() {
   }
 
   return (
-    <section id="solutions-section" className="section-padding pt-20 bg-dark-900 relative overflow-hidden">
+    <section id="solutions-section" className="section-padding bg-dark-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-900 to-dark-900" />
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
@@ -139,7 +147,7 @@ export default function SolutionsSection() {
 
         
 
-        <div className="relative overflow-hidden rounded-3xl bg-dark-900/40">
+        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-dark-900/40">
           <div className="relative h-[420px] sm:h-[460px] lg:h-[520px]">
             {slides.map((slide, index) => (
               <div
@@ -160,19 +168,24 @@ export default function SolutionsSection() {
                 <div className="absolute inset-0 bg-gradient-to-br from-dark-900/90 via-dark-800/80 to-dark-700/70" />
                 <div className="pointer-events-none absolute inset-0 slideshow-texture" aria-hidden="true" />
                 <div className="absolute inset-y-0 left-0 w-3/4 bg-gradient-to-r from-dark-900/90 via-dark-900/70 to-transparent sm:w-2/3 lg:w-1/2" />
-                <div className="relative z-10 flex h-full flex-col justify-end gap-6 px-6 py-8 sm:px-10 sm:pl-14 md:flex-row md:items-center md:justify-between md:gap-10 md:pl-16">
-                  <div className="max-w-xl space-y-4">
+                <div className="relative z-10 flex h-full flex-col justify-end gap-4 px-5 py-6 sm:gap-6 sm:px-10 sm:py-8 sm:pl-14 md:flex-row md:items-center md:justify-between md:gap-10 md:pl-16">
+                  <div className="max-w-xl space-y-3 sm:space-y-4">
                     <div className="flex items-center gap-3 text-accent-lime">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-accent-lime/40 bg-accent-lime/10">
                         <slide.icon className="h-6 w-6" />
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-semibold text-white">{slide.title}</h3>
+                      <h3 className="text-xl font-semibold leading-snug text-white sm:text-2xl md:text-3xl">
+                        <span className="sm:hidden">{slide.mobileTitle ?? slide.title}</span>
+                        <span className="hidden sm:inline">{slide.title}</span>
+                      </h3>
                     </div>
-                    <p className="text-gray-100 leading-relaxed sm:hidden">{slide.mobileDescription}</p>
+                    <p className="text-gray-100 leading-relaxed sm:hidden">
+                      {slide.mobileDescription ?? slide.description}
+                    </p>
                     <p className="hidden text-gray-100 leading-relaxed sm:block">{slide.description}</p>
                   </div>
-                  <div
-                    className="relative h-64 w-full max-w-none shrink-0 self-center sm:h-72 sm:w-[80vw] sm:max-w-[420px] md:h-[300px] md:w-full md:self-auto md:max-w-[520px] lg:h-[360px] lg:max-w-[600px]"
+                  <div 
+                    className="relative h-56 w-[80vw] max-w-[420px] shrink-0 self-center sm:h-64 sm:w-[80vw] md:h-[300px] md:w-full md:self-auto md:max-w-[520px] lg:h-[360px] lg:max-w-[600px]"
                     onMouseMove={handleParallaxMove}
                     onMouseLeave={handleParallaxLeave}
                   >
@@ -199,7 +212,7 @@ export default function SolutionsSection() {
             type="button"
             aria-label="Previous slide"
             onClick={goToPrevSlide}
-            className="absolute left-2 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-dark-900/70 text-white transition hover:bg-dark-800/90 max-sm:bottom-4 max-sm:top-auto max-sm:translate-y-0 sm:left-3 md:left-4"
+            className="absolute left-2 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-dark-900/70 text-white transition hover:bg-dark-800/90 sm:left-3 md:left-4"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
@@ -207,7 +220,7 @@ export default function SolutionsSection() {
             type="button"
             aria-label="Next slide"
             onClick={goToNextSlide}
-            className="absolute right-2 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-dark-900/70 text-white transition hover:bg-dark-800/90 max-sm:bottom-4 max-sm:top-auto max-sm:translate-y-0 sm:right-3 md:right-4"
+            className="absolute right-2 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-dark-900/70 text-white transition hover:bg-dark-800/90 sm:right-3 md:right-4"
           >
             <ChevronRight className="h-4 w-4" />
           </button>

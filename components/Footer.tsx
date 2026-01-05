@@ -74,7 +74,7 @@ export default function Footer() {
           </div>
 
           {/* Middle Section - Navigation */}
-          <div className="flex gap-6 sm:gap-8 lg:gap-10 justify-center lg:justify-start items-center sm:items-start order-3 lg:order-none lg:ml-14">
+          <div className="flex gap-6 sm:gap-8 lg:gap-10 justify-center lg:justify-start items-start order-3 lg:order-none lg:ml-14">
             <div className="text-center sm:text-left">
               <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
               <div className="space-y-3">
