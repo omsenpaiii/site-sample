@@ -10,6 +10,7 @@ const solutions = [
     title: 'Covenant & Tickler Management',
     description:
       'Protect portfolio health with an integrated Covenant & Tickler Management solution that keeps risk in check. Track covenant compliance and critical ticklers in real time with a structured review and approval workflow. Reduce surprises, improve visibility, and act early to safeguard returns.',
+    mobileDescription: 'Track covenant compliance and critical ticklers in real time.',
     // public/images/slideshow1.png
   },
   {
@@ -17,6 +18,7 @@ const solutions = [
     title: 'Post-Disbursement Progress Monitoring',
     description:
       'Ensure ongoing control after or during funding with Post-Disbursement Progress Monitoring. Track milestones, conditions, and usage or milestones of funds through structured reviews and real-time updates. Detect issues early, maintain compliance, and protect portfolio performance throughout the loan lifecycle.',
+    mobileDescription: 'Monitor funding milestones and conditions with real-time updates.',
     // public/images/slideshow2.png
     },
   {
@@ -24,6 +26,7 @@ const solutions = [
     title: 'Rule Based Dynamic Workflow Engine',
     description:
       'Automate complex processes with a Rule-Based Dynamic Workflow Engine that adapts in real time. Configure rules to route tasks, trigger approvals, and enforce policy based on data and events. Cut turnaround time, reduce manual errors, and keep operations consistently audit-ready.',
+    mobileDescription: 'Route tasks and approvals automatically with real-time rules.',
     // public/images/slideshow3.png
     },
   {
@@ -31,6 +34,7 @@ const solutions = [
     title: 'AI-Enabled Document Scrubbing',
     description:
       'Automatically extract, validate, and flag risks or inconsistencies across large document sets. Reduce manual effort, improve accuracy, and make faster, more confident decisions.',
+    mobileDescription: 'Extract, validate, and flag risks across large document sets.',
     // public/images/slideshow4.png
   },
   {
@@ -38,6 +42,7 @@ const solutions = [
     title: 'Intelligent Document Validation Engine',
     description:
       'Detect and prevent fraud with AI-powered document checks. Automatically identify forged, altered, or inconsistent documents using intelligent pattern analysis. Reduce risk, speed up reviews, and strengthen trust across every transaction.',
+    mobileDescription: 'Detect fraud and inconsistencies fast with AI-powered checks.',
     // public/images/slideshow5.png
     },
   {
@@ -45,6 +50,7 @@ const solutions = [
     title: 'Advanced Credit Memo Builder',
     description:
       'Automate credit analysis with customizable credit memo templates, ratio calculations, AI summaries, and institution-specific narratives.',
+    mobileDescription: 'Automate credit memos with templates, ratios, and AI summaries.',
     // public/images/slideshow6.png
     },
   {
@@ -52,6 +58,7 @@ const solutions = [
     title: 'Configurable and Advanced Spreading Capabilities',
     description:
       'Streamline analysis with Configurable and Advanced Spreading Capabilities in the platform. Easily adapt templates and rules to spread financials across industries, entities, and deal types. Improve accuracy, consistency, and speed from data capture to credit decision.',
+    mobileDescription: 'Adapt templates and spread financials faster across entities.',
     // public/images/slideshow7.png
     },
   {
@@ -59,6 +66,7 @@ const solutions = [
     title: 'Advanced Lending Analytics & Insights',
     description:
       'Get real-time dashboards for portfolio performance, borrower behaviour, risk scoring, and trend predictions.',
+    mobileDescription: 'Dashboards for portfolio performance, risk, and trend insights.',
     // public/images/slideshow8.png
     },
 ]
@@ -116,7 +124,7 @@ export default function SolutionsSection() {
   }
 
   return (
-    <section id="solutions-section" className="section-padding bg-dark-900 relative overflow-hidden">
+    <section id="solutions-section" className="section-padding pt-20 bg-dark-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-900 to-dark-900" />
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
@@ -160,10 +168,11 @@ export default function SolutionsSection() {
                       </div>
                       <h3 className="text-2xl md:text-3xl font-semibold text-white">{slide.title}</h3>
                     </div>
-                    <p className="text-gray-100 leading-relaxed">{slide.description}</p>
+                    <p className="text-gray-100 leading-relaxed sm:hidden">{slide.mobileDescription}</p>
+                    <p className="hidden text-gray-100 leading-relaxed sm:block">{slide.description}</p>
                   </div>
                   <div
-                    className="relative h-64 w-full max-w-none self-center sm:h-72 sm:w-[80vw] sm:max-w-[420px] md:h-[300px] md:w-full md:self-auto md:max-w-[520px] lg:h-[360px] lg:max-w-[600px]"
+                    className="relative h-64 w-full max-w-none shrink-0 self-center sm:h-72 sm:w-[80vw] sm:max-w-[420px] md:h-[300px] md:w-full md:self-auto md:max-w-[520px] lg:h-[360px] lg:max-w-[600px]"
                     onMouseMove={handleParallaxMove}
                     onMouseLeave={handleParallaxLeave}
                   >

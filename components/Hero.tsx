@@ -80,7 +80,7 @@ export default function Hero() {
                 alt="Loans platform dashboard screen"
                 width={1536}
                 height={1005}
-                className="relative z-10 h-auto w-full scale-125"
+                className="relative z-10 h-auto w-full scale-100 sm:scale-110 lg:scale-125"
                 priority
               />
             </div>

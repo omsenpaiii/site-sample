@@ -160,13 +160,13 @@ export default function DataFlow() {
             </div>
             <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-px bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-px bg-gradient-to-r from-transparent via-slate-300/80 to-transparent" />
-            <div className="pointer-events-none absolute inset-x-[200px] top-1/2 z-0 h-px bg-gradient-to-r from-transparent via-blue-400/70 to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 top-1/2 z-0 h-px -translate-y-[82px] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent before:absolute before:inset-y-0 before:w-24 before:animate-[line_10s_ease-in-out_infinite_both] before:bg-gradient-to-r before:from-transparent before:via-blue-500 before:to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 top-1/2 z-0 h-px translate-y-[82px] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent before:absolute before:inset-y-0 before:w-24 before:animate-[line_10s_ease-in-out_infinite_5s_both] before:bg-gradient-to-r before:from-transparent before:via-blue-500 before:to-transparent" />
-            <div className="pointer-events-none absolute inset-x-[300px] top-1/2 z-0 h-px rotate-[20deg] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent" />
-            <div className="pointer-events-none absolute inset-x-[300px] top-1/2 z-0 h-px -rotate-[20deg] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-px -translate-x-[216px] bg-gradient-to-b from-slate-300/70 to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-px translate-x-[216px] bg-gradient-to-t from-slate-300/70 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-[120px] top-1/2 z-0 h-px bg-gradient-to-r from-transparent via-blue-400/70 to-transparent sm:inset-x-[200px]" />
+            <div className="pointer-events-none absolute inset-x-0 top-1/2 z-0 h-px -translate-y-[64px] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent before:absolute before:inset-y-0 before:w-24 before:animate-[line_10s_ease-in-out_infinite_both] before:bg-gradient-to-r before:from-transparent before:via-blue-500 before:to-transparent sm:-translate-y-[82px]" />
+            <div className="pointer-events-none absolute inset-x-0 top-1/2 z-0 h-px translate-y-[64px] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent before:absolute before:inset-y-0 before:w-24 before:animate-[line_10s_ease-in-out_infinite_5s_both] before:bg-gradient-to-r before:from-transparent before:via-blue-500 before:to-transparent sm:translate-y-[82px]" />
+            <div className="pointer-events-none absolute inset-x-[180px] top-1/2 z-0 h-px rotate-[20deg] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent sm:inset-x-[300px]" />
+            <div className="pointer-events-none absolute inset-x-[180px] top-1/2 z-0 h-px -rotate-[20deg] bg-gradient-to-r from-transparent via-slate-300/70 to-transparent sm:inset-x-[300px]" />
+            <div className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-px -translate-x-[160px] bg-gradient-to-b from-slate-300/70 to-transparent sm:-translate-x-[216px]" />
+            <div className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-px translate-x-[160px] bg-gradient-to-t from-slate-300/70 to-transparent sm:translate-x-[216px]" />
 
             <div className="absolute z-10 before:absolute before:-inset-3 before:animate-[spin_3s_linear_infinite] before:rounded-full before:border before:border-transparent before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] before:[background:conic-gradient(from_180deg,transparent,#3b82f6)_border-box]">
               <div className="animate-[breath_8s_ease-in-out_infinite_both]">
@@ -178,56 +178,56 @@ export default function DataFlow() {
 
             <div className="relative z-10 flex flex-col">
               <article className="flex h-full w-full items-center justify-center focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-indigo-300">
-                <div className="absolute -translate-x-[136px]">
+                <div className="absolute -translate-x-[104px] sm:-translate-x-[136px]">
                   <div className="animate-[breath_7s_ease-in-out_3s_infinite_both]">
                     <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
                       <Image className="relative" src={Logo02} width={40} height={38} alt="Logo 02" />
                     </div>
                   </div>
                 </div>
-                <div className="absolute translate-x-[136px]">
+                <div className="absolute translate-x-[104px] sm:translate-x-[136px]">
                   <div className="animate-[breath_7s_ease-in-out_3.5s_infinite_both]">
                     <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
                       <Image className="relative" src={Logo03} width={40} height={40} alt="Logo 03" />
                     </div>
                   </div>
                 </div>
-                <div className="absolute -translate-x-[216px] -translate-y-[82px]">
+                <div className="absolute -translate-x-[160px] -translate-y-[64px] sm:-translate-x-[216px] sm:-translate-y-[82px]">
                   <div className="animate-[breath_6s_ease-in-out_3.5s_infinite_both]">
                     <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
                       <Image className="relative" src={Logo04} width={48} height={48} alt="Logo 04" />
                     </div>
                   </div>
                 </div>
-                <div className="absolute -translate-y-[82px] translate-x-[216px]">
+                <div className="absolute -translate-y-[64px] translate-x-[160px] sm:-translate-y-[82px] sm:translate-x-[216px]">
                   <div className="animate-[breath_6s_ease-in-out_1.5s_infinite_both]">
                     <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
                       <Image className="relative" src={Logo05} width={42} height={42} alt="Logo 05" />
                     </div>
                   </div>
                 </div>
-                <div className="absolute translate-x-[216px] translate-y-[82px]">
+                <div className="absolute translate-x-[160px] translate-y-[64px] sm:translate-x-[216px] sm:translate-y-[82px]">
                   <div className="animate-[breath_6s_ease-in-out_2s_infinite_both]">
                     <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
                       <Image className="relative" src={Logo06} width={38} height={34} alt="Logo 06" />
                     </div>
                   </div>
                 </div>
-                <div className="absolute -translate-x-[216px] translate-y-[82px]">
+                <div className="absolute -translate-x-[160px] translate-y-[64px] sm:-translate-x-[216px] sm:translate-y-[82px]">
                   <div className="animate-[breath_6s_ease-in-out_2.5s_infinite_both]">
                     <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:m-[8.334%] before:rounded-[inherit] before:border before:border-gray-700/5 before:bg-gray-200/60 before:[mask-image:linear-gradient(to_bottom,black,transparent)]">
                       <Image className="relative" src={Logo07} width={50} height={50} alt="Logo 07" />
                     </div>
                   </div>
                 </div>
-                <div className="absolute -translate-x-[292px] opacity-60">
+                <div className="absolute -translate-x-[210px] opacity-60 sm:-translate-x-[292px]">
                   <div className="animate-[breath_6s_ease-in-out_2s_infinite_both]">
                     <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gray-200/60 bg-white shadow-lg">
                       <Image className="relative" src={Logo08} width={36} height={36} alt="Logo 08" />
                     </div>
                   </div>
                 </div>
-                <div className="absolute translate-x-[292px] opacity-60">
+                <div className="absolute translate-x-[210px] opacity-60 sm:translate-x-[292px]">
                   <div className="animate-[breath_6s_ease-in-out_4s_infinite_both]">
                     <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gray-200/60 bg-white shadow-lg">
                       <Image className="relative" src={Logo09} width={36} height={24} alt="Logo 09" />
