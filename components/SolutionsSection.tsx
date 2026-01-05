@@ -131,7 +131,7 @@ export default function SolutionsSection() {
 
         
 
-        <div className="relative overflow-hidden bg-dark-900/40">
+        <div className="relative overflow-hidden rounded-3xl bg-dark-900/40">
           <div className="relative h-[420px] sm:h-[460px] lg:h-[520px]">
             {slides.map((slide, index) => (
               <div
@@ -162,8 +162,8 @@ export default function SolutionsSection() {
                     </div>
                     <p className="text-gray-100 leading-relaxed">{slide.description}</p>
                   </div>
-                  <div 
-                    className="relative w-[80vw] max-w-[420px] self-center md:w-full md:self-auto md:max-w-[520px] lg:max-w-[600px] h-56 sm:h-64 md:h-[300px] lg:h-[360px]"
+                  <div
+                    className="relative h-64 w-full max-w-none self-center sm:h-72 sm:w-[80vw] sm:max-w-[420px] md:h-[300px] md:w-full md:self-auto md:max-w-[520px] lg:h-[360px] lg:max-w-[600px]"
                     onMouseMove={handleParallaxMove}
                     onMouseLeave={handleParallaxLeave}
                   >
@@ -190,7 +190,7 @@ export default function SolutionsSection() {
             type="button"
             aria-label="Previous slide"
             onClick={goToPrevSlide}
-            className="absolute left-2 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-dark-900/70 text-white transition hover:bg-dark-800/90 sm:left-3 md:left-4"
+            className="absolute left-2 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-dark-900/70 text-white transition hover:bg-dark-800/90 max-sm:bottom-4 max-sm:top-auto max-sm:translate-y-0 sm:left-3 md:left-4"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
@@ -198,7 +198,7 @@ export default function SolutionsSection() {
             type="button"
             aria-label="Next slide"
             onClick={goToNextSlide}
-            className="absolute right-2 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-dark-900/70 text-white transition hover:bg-dark-800/90 sm:right-3 md:right-4"
+            className="absolute right-2 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-dark-900/70 text-white transition hover:bg-dark-800/90 max-sm:bottom-4 max-sm:top-auto max-sm:translate-y-0 sm:right-3 md:right-4"
           >
             <ChevronRight className="h-4 w-4" />
           </button>

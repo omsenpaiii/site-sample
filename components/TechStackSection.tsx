@@ -107,7 +107,7 @@ export default function TechStackSection() {
                     <button
                       type="button"
                       onClick={() => setActiveIndex(index)}
-                      className={`flex w-full items-center justify-between gap-6 px-6 py-5 text-left transition ${
+                      className={`flex w-full items-center justify-between gap-6 px-6 py-5 text-left transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-lime/50 focus-visible:ring-offset-0 ${
                         isActive ? 'bg-dark-800/60' : 'hover:bg-dark-800/40'
                       }`}
                     >
@@ -178,7 +178,7 @@ export default function TechStackSection() {
                   <button
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className="flex w-full items-center gap-4 px-6 py-5 text-left"
+                    className="flex w-full items-center gap-4 px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-lime/50 focus-visible:ring-offset-0"
                   >
                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 shrink-0">
                       <Image
@@ -206,7 +206,7 @@ export default function TechStackSection() {
                         ))}
                       </ul>
                       {index === 0 ? (
-                        <div className="grid grid-cols-2 gap-4 rounded-xl bg-white/90 p-3">
+                        <div className="mx-auto grid w-full max-w-[320px] grid-cols-2 place-items-center gap-4 rounded-xl bg-white/90 p-3">
                           {providerLogos.map((logo) => (
                             <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-lg bg-transparent shrink-0">
                               <Image src={logo} alt="Cloud provider logo" width={80} height={80} className="w-16 h-16 object-contain" />
@@ -214,7 +214,7 @@ export default function TechStackSection() {
                           ))}
                         </div>
                       ) : index === 1 ? (
-                        <div className="grid grid-cols-2 gap-4 rounded-xl bg-white/90 p-3">
+                        <div className="mx-auto grid w-full max-w-[320px] grid-cols-2 place-items-center gap-4 rounded-xl bg-white/90 p-3">
                           {dataLogos.map((logo) => (
                             <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-lg bg-transparent shrink-0">
                               <Image src={logo} alt="Data tool logo" width={80} height={80} className="w-16 h-16 object-contain" />
@@ -222,7 +222,7 @@ export default function TechStackSection() {
                           ))}
                         </div>
                       ) : index === 2 ? (
-                        <div className="grid grid-cols-2 gap-4 rounded-xl bg-white/90 p-3">
+                        <div className="mx-auto grid w-full max-w-[320px] grid-cols-2 place-items-center gap-4 rounded-xl bg-white/90 p-3">
                           {rpaLogos.map((logo) => (
                             <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-lg bg-transparent shrink-0">
                               <Image src={logo} alt="RPA tool logo" width={80} height={80} className="w-16 h-16 object-contain" />
@@ -230,7 +230,7 @@ export default function TechStackSection() {
                           ))}
                         </div>
                       ) : index === 3 ? (
-                        <div className="grid grid-cols-2 gap-4 rounded-xl bg-white/90 p-3">
+                        <div className="mx-auto grid w-full max-w-[320px] grid-cols-2 place-items-center gap-4 rounded-xl bg-white/90 p-3">
                           {integrationsLogos.map((logo) => (
                             <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-lg bg-transparent shrink-0">
                               <Image src={logo} alt="Integration tool logo" width={80} height={80} className="w-16 h-16 object-contain" />
@@ -238,7 +238,7 @@ export default function TechStackSection() {
                           ))}
                         </div>
                       ) : index === 4 ? (
-                        <div className="grid grid-cols-2 gap-4 rounded-xl bg-white/90 p-3">
+                        <div className="mx-auto grid w-full max-w-[320px] grid-cols-2 place-items-center gap-4 rounded-xl bg-white/90 p-3">
                           {supportLogos.map((logo) => (
                             <div key={logo} className="flex h-20 w-20 items-center justify-center rounded-lg bg-transparent shrink-0">
                               <Image src={logo} alt="Support tool logo" width={80} height={80} className="w-16 h-16 object-contain" />
